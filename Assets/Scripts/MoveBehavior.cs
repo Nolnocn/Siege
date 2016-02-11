@@ -10,6 +10,12 @@ public class MoveBehavior : MonoBehaviour
 	public float separationDist = 1.0f;
 	public float obsAvoidDist = 1.0f;
 
+	//wander variables
+	public float wanderRad = 1.0f;
+	public float wanderDist = 5.0f;
+	public float wanderRand = 3.0f;
+	public float wanderAng = 0.2f;
+
 	private Rigidbody m_rigidbody;
 	private Vector3 m_dv;
 
@@ -30,6 +36,18 @@ public class MoveBehavior : MonoBehaviour
 		m_dv -= m_rigidbody.velocity;
 		m_dv.y = 0;
 		return m_dv;
+	}
+
+	// creates an invisible circle a distance in front of
+	// the mover and seeks a position along its radius
+	public Vector3 Wander( )
+	{
+		Vector3 target = transform.position + transform.forward * wanderDist;
+		Quaternion rot = Quaternion.Euler(0, wanderAng, 0);
+		Vector3 offset = rot * transform.forward;
+		target += offset * wanderRad;
+		wanderAng += Random.Range (-wanderRand, wanderRand);
+		return Seek (target);
 	}
 
 	public Vector3 Arrive( Vector3 targetPos )

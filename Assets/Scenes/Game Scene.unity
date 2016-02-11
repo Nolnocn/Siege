@@ -1345,6 +1345,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 5
 --- !u!114 &872071849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,6 +1362,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &872071850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2080,6 +2085,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 0
   seekWt: 10
+  wanderWt: 4
 --- !u!114 &1249978637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,6 +2102,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1249978638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2362,6 +2372,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 4
 --- !u!114 &1294052004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2378,6 +2389,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1294052005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3058,6 +3073,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 4
 --- !u!114 &1486436211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3074,6 +3090,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1486436212
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3459,6 +3479,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 5
 --- !u!114 &1684210587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3475,6 +3496,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1684210588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3591,6 +3616,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 4
 --- !u!114 &1731838773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3607,6 +3633,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1731838774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3948,6 +3978,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 0
   seekWt: -5
+  wanderWt: 4
 --- !u!114 &1875077486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3964,6 +3995,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!54 &1875077487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4291,6 +4326,7 @@ MonoBehaviour:
   separationWt: 10
   flowWt: 50
   seekWt: 5
+  wanderWt: 4
 --- !u!114 &1975148931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4307,6 +4343,10 @@ MonoBehaviour:
   arriveDist: 1
   separationDist: 1
   obsAvoidDist: 1
+  wanderRad: 1
+  wanderDist: 5
+  wanderRand: 3
+  wanderAng: 0.2
 --- !u!1 &1980031594
 GameObject:
   m_ObjectHideFlags: 0
