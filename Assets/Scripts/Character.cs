@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
 	public float separationWt = 10.0f;
 	public float flowWt = 0.0f;
 	public float seekWt = 5.0f;
+	public float wanderWt = 4.0f;
 
 	private Rigidbody m_rigidbody;
 	private MoveBehavior m_movement;
@@ -47,7 +48,9 @@ public class Character : MonoBehaviour
 			force += seekWt * m_movement.Seek( target.position );
 		}
 
-		force += flowWt * m_movement.Flow( flow );
+		// commented out flow to test wander.
+		//force += flowWt * m_movement.Flow( flow );
+		force += wanderWt * m_movement.Wander();
 
 		force = Vector3.ClampMagnitude( force, maxForce );
 		m_rigidbody.AddForce( force, ForceMode.Acceleration );
