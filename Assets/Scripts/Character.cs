@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [ RequireComponent( typeof( Rigidbody ) ) ]
 [ RequireComponent( typeof( MoveBehavior ) ) ]
@@ -16,16 +17,21 @@ public class Character : MonoBehaviour
 	public float flowWt = 0.0f;
 	public float seekWt = 5.0f;
 	public float wanderWt = 4.0f;
+	public float avoidanceWt = 25.0f;
 
 	private Rigidbody m_rigidbody;
 	private MoveBehavior m_movement;
 
+	//List<GameObject> obstacles;
+	public GameObject[] obstacles;
 	void Start ()
 	{
 		m_rigidbody = GetComponent<Rigidbody>();
 		m_movement = GetComponent<MoveBehavior>();
 		m_movement.SetRigidBody( m_rigidbody );
 		m_rigidbody.drag = maxForce / maxSpeed;
+		//obstacles = new List<GameObject> ();
+		obstacles = GameObject.FindGameObjectsWithTag ("obstacle");
 	}
 	
 	void Update ()
@@ -46,7 +52,18 @@ public class Character : MonoBehaviour
 		if( target != null )
 		{
 			force += seekWt * m_movement.Seek( target.position );
+			//print (seekWt * m_movement.Seek( target.position ));
 		}
+		Vector3 obsAvoidForce = Vector3.zero;
+		foreach (GameObject o in obstacles) {
+			
+			obsAvoidForce += avoidanceWt * m_movement.AvoidObstacle (o.transform.position);
+			//print("checking to avoid: " + o.name);
+
+		}
+		//print (obsAvoidForce);
+		force += obsAvoidForce;
+
 
 		// commented out flow to test wander.
 		//force += flowWt * m_movement.Flow( flow );
@@ -54,5 +71,7 @@ public class Character : MonoBehaviour
 
 		force = Vector3.ClampMagnitude( force, maxForce );
 		m_rigidbody.AddForce( force, ForceMode.Acceleration );
+
+
 	}
 }

@@ -8,7 +8,7 @@ public class MoveBehavior : MonoBehaviour
 	public float maxSpeed = 5.0f;
 	public float arriveDist = 1.0f;
 	public float separationDist = 1.0f;
-	public float obsAvoidDist = 1.0f;
+	public float obsAvoidDist = 10.0f;
 
 	//wander variables
 	public float wanderRad = 1.0f;
@@ -96,7 +96,7 @@ public class MoveBehavior : MonoBehaviour
 	public Vector3 AvoidObstacle( Vector3 obs )
 	{ 
 		m_dv = Vector3.zero;
-		float obRadius = 5;
+		float obRadius = 15f;
 
 		Vector3 vecToCenter = obs - transform.position;
 		vecToCenter.y = 0;
