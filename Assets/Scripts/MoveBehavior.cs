@@ -10,6 +10,10 @@ public class MoveBehavior : MonoBehaviour
 	public float separationDist = 5.0f;
 	public float obsAvoidDist = 10.0f;
 
+	//bound half widths
+	public float boundX = 50.0f;
+	public float boundZ = 50.0f;
+
 	//wander variables
 	public float wanderRad = 1.0f;
 	public float wanderDist = 5.0f;
@@ -18,6 +22,8 @@ public class MoveBehavior : MonoBehaviour
 
 	private Rigidbody m_rigidbody;
 	private Vector3 m_dv;
+	private int m_frames = 2;
+	private int stageFrames = 5;
 
 	void Start()
 	{
@@ -41,6 +47,22 @@ public class MoveBehavior : MonoBehaviour
 	public Vector3 Flee( Vector3 targetPos )
 	{
 		return -1.0f * Seek( targetPos );
+	}
+
+	public Vector3 Pursue( Rigidbody target )
+	{
+		Vector3 changeInPos = target.velocity * m_frames;
+		Vector3 futurPos = target.transform.position + changeInPos;
+		m_dv = Seek( futurPos );
+		return m_dv;
+	}
+
+	public Vector3 Evade( Rigidbody target )
+	{
+		Vector3 changeInPos = target.velocity * m_frames;
+		Vector3 futurPos = target.transform.position + changeInPos;
+		m_dv = Flee( futurPos );
+		return m_dv;
 	}
 
 	// creates an invisible circle a distance in front of
@@ -148,5 +170,30 @@ public class MoveBehavior : MonoBehaviour
 		m_dv.y = 0;
 
 		return m_dv;
+	}
+
+	public bool OffStage( Vector3 center )
+	{
+		Vector3 changeInPos = m_rigidbody.velocity * stageFrames;
+		Vector3 futurePos = m_rigidbody.position + changeInPos;
+
+		if (futurePos.x < center.x - boundX) 
+		{
+			return true;
+		} 
+		else if (futurePos.x > center.x + boundX) 
+		{
+			return true;
+		}
+		else if (futurePos.z < center.z - boundZ) 
+		{
+			return true;
+		}
+		else if (futurePos.z > center.z + boundZ) 
+		{
+			return true;
+		}
+
+		return false;
 	}
 }
