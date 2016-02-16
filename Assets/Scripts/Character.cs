@@ -7,8 +7,12 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
-	public FlowField flow; // Temporary for testing
+	// Temporary for testing
+	public FlowField flow;
+	public Vector3 center = Vector3.zero;
+
 	public Transform target;
+	public Rigidbody characterTarget;
 	public bool shouldWander = false;
 
 	public float maxForce = 10.0f;
@@ -17,8 +21,12 @@ public class Character : MonoBehaviour
 	public float separationWt = 10.0f;
 	public float flowWt = 0.0f;
 	public float seekWt = 5.0f;
+	public float fleeWt = 5.0f;
+	public float pursueWt = 0.0f;
+	public float evadeWt = 0.0f;
 	public float wanderWt = 4.0f;
 	public float avoidanceWt = 25.0f;
+	public float boundsWt = 25.0f;
 
 	public List<Transform> m_characters;
 	private Obstacle[] m_obstacles;
@@ -60,9 +68,22 @@ public class Character : MonoBehaviour
 	{
 		Vector3 force = Vector3.zero;
 
+		if ( m_movement.OffStage (center) ) 
+		{
+			force += boundsWt * m_movement.Seek( center );
+		}
+
 		if( target != null )
 		{
 			force += seekWt * m_movement.Seek( target.position );
+		}
+
+		if( characterTarget != null )
+		{
+
+			force += fleeWt * m_movement.Flee( characterTarget.position );
+			force += pursueWt * m_movement.Pursue( characterTarget );
+			force += evadeWt * m_movement.Evade( characterTarget );
 		}
 
 		Vector3 obsAvoidForce = Vector3.zero;
