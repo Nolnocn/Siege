@@ -7,7 +7,7 @@ public class MoveBehavior : MonoBehaviour
 	public float radius = 1.0f;
 	public float maxSpeed = 5.0f;
 	public float arriveDist = 1.0f;
-	public float separationDist = 1.0f;
+	public float separationDist = 5.0f;
 	public float obsAvoidDist = 10.0f;
 
 	//wander variables
@@ -38,16 +38,21 @@ public class MoveBehavior : MonoBehaviour
 		return m_dv;
 	}
 
+	public Vector3 Flee( Vector3 targetPos )
+	{
+		return -1.0f * Seek( targetPos );
+	}
+
 	// creates an invisible circle a distance in front of
 	// the mover and seeks a position along its radius
-	public Vector3 Wander( )
+	public Vector3 Wander()
 	{
 		Vector3 target = transform.position + transform.forward * wanderDist;
 		Quaternion rot = Quaternion.Euler(0, wanderAng, 0);
 		Vector3 offset = rot * transform.forward;
 		target += offset * wanderRad;
 		wanderAng += Random.Range (-wanderRand, wanderRand);
-		return Seek (target);
+		return Seek(target);
 	}
 
 	public Vector3 Arrive( Vector3 targetPos )
@@ -93,12 +98,12 @@ public class MoveBehavior : MonoBehaviour
 		return m_dv;
 	}
 
-	public Vector3 AvoidObstacle( Vector3 obs )
+	public Vector3 AvoidObstacle( Obstacle obs )
 	{ 
 		m_dv = Vector3.zero;
-		float obRadius = 15f;
+		float obRadius = obs.Radius;
 
-		Vector3 vecToCenter = obs - transform.position;
+		Vector3 vecToCenter = obs.Position - transform.position;
 		vecToCenter.y = 0;
 		float dist = vecToCenter.magnitude;
 
@@ -114,12 +119,12 @@ public class MoveBehavior : MonoBehaviour
 
 		float rightDotVTC = Vector3.Dot( vecToCenter, transform.right );
 
-		if ( Mathf.Abs (rightDotVTC) > radius + obRadius )
+		if ( Mathf.Abs( rightDotVTC ) > radius + obRadius )
 		{
 			return Vector3.zero;
 		}
 
-		if (rightDotVTC > 0)
+		if ( rightDotVTC > 0 )
 		{
 			m_dv += transform.right * -maxSpeed * obsAvoidDist / dist;
 		}
