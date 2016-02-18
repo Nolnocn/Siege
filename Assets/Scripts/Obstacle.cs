@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Obstacle : MonoBehaviour
 {
-	public float m_radius = 1.0f;
+	private float m_radius = 1.0f;
 
 	public float Radius
 	{
@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
 
 		if( col != null )
 		{
-			m_radius = col.radius;
+			m_radius = col.radius * 2.0f;
 		}
 		
 		m_radius *= transform.localScale.x;

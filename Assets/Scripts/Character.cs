@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
 	public float avoidanceWt = 25.0f;
 	public float boundsWt = 25.0f;
 
-	public List<Transform> m_characters;
+	private List<Transform> m_characters;
 	private Obstacle[] m_obstacles;
 
 	private Rigidbody m_rigidbody;
@@ -46,10 +46,11 @@ public class Character : MonoBehaviour
 	{
 		CalculateSteeringForces();
 
-		if( m_rigidbody.velocity != Vector3.zero )
+
+		Vector3 facing = m_rigidbody.velocity;
+		facing.y = 0;
+		if( facing != Vector3.zero )
 		{
-			Vector3 facing = m_rigidbody.velocity;
-			facing.y = 0;
 			transform.forward = facing;
 		}
 	}
@@ -68,7 +69,7 @@ public class Character : MonoBehaviour
 	{
 		Vector3 force = Vector3.zero;
 
-		if ( m_movement.OffStage (center) ) 
+		if ( m_movement.OffStage( center ) ) 
 		{
 			force += boundsWt * m_movement.Seek( center );
 		}
@@ -80,7 +81,6 @@ public class Character : MonoBehaviour
 
 		if( characterTarget != null )
 		{
-
 			force += fleeWt * m_movement.Flee( characterTarget.position );
 			force += pursueWt * m_movement.Pursue( characterTarget );
 			force += evadeWt * m_movement.Evade( characterTarget );
