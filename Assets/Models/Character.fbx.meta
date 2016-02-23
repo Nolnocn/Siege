@@ -1,0 +1,495 @@
+fileFormatVersion: 2
+guid: 30f2f068758b743399a5ef2b96bdf1a8
+timeCreated: 1456190417
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: Cube
+    100006: Head Lower
+    100008: Head Upper
+    100010: Head Upper_end
+    100012: L Arm Hand
+    100014: L Arm Hand_end
+    100016: L Arm Lower
+    100018: L Arm Upper
+    100020: L Leg Lower
+    100022: L Leg Lower_end
+    100024: L Leg Upper
+    100026: Neck
+    100028: R Arm Hand
+    100030: R Arm Hand_end
+    100032: R Arm Lower
+    100034: R Arm Upper
+    100036: R Leg Lower
+    100038: R Leg Lower_end
+    100040: R Leg Upper
+    100042: root
+    100044: Torso
+    400000: Armature
+    400002: //RootNode
+    400004: Cube
+    400006: Head Lower
+    400008: Head Upper
+    400010: Head Upper_end
+    400012: L Arm Hand
+    400014: L Arm Hand_end
+    400016: L Arm Lower
+    400018: L Arm Upper
+    400020: L Leg Lower
+    400022: L Leg Lower_end
+    400024: L Leg Upper
+    400026: Neck
+    400028: R Arm Hand
+    400030: R Arm Hand_end
+    400032: R Arm Lower
+    400034: R Arm Upper
+    400036: R Leg Lower
+    400038: R Leg Lower_end
+    400040: R Leg Upper
+    400042: root
+    400044: Torso
+    4300000: Cube
+    7400000: Armature|Hold Bow
+    7400002: Armature|Run
+    7400004: Armature|Idle
+    7400006: Armature|Shield Idle
+    7400008: Armature|Shield Wipe
+    9500000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Hold Bow
+      takeName: Armature|Hold Bow
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Torso
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand/L Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower/L Leg Lower_end
+        weight: 1
+      - path: Armature/root/Torso/Neck
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper/Head Upper_end
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand/R Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower/R Leg Lower_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Run
+      takeName: Armature|Run
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Torso
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand/L Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower/L Leg Lower_end
+        weight: 1
+      - path: Armature/root/Torso/Neck
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper/Head Upper_end
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand/R Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower/R Leg Lower_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Torso
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand/L Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower/L Leg Lower_end
+        weight: 1
+      - path: Armature/root/Torso/Neck
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper/Head Upper_end
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand/R Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower/R Leg Lower_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Shield Idle
+      takeName: Armature|Shield Idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Torso
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand/L Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower/L Leg Lower_end
+        weight: 1
+      - path: Armature/root/Torso/Neck
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper/Head Upper_end
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand/R Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower/R Leg Lower_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Shield Wipe
+      takeName: Armature|Shield Wipe
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Torso
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/L Arm Upper/L Arm Lower/L Arm Hand/L Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/L Leg Upper/L Leg Lower/L Leg Lower_end
+        weight: 1
+      - path: Armature/root/Torso/Neck
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper
+        weight: 1
+      - path: Armature/root/Torso/Neck/Head Lower/Head Upper/Head Upper_end
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand
+        weight: 1
+      - path: Armature/root/Torso/R Arm Upper/R Arm Lower/R Arm Hand/R Arm Hand_end
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower
+        weight: 1
+      - path: Armature/root/Torso/R Leg Upper/R Leg Lower/R Leg Lower_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -16,6 +16,7 @@ public class Manager : MonoBehaviour
 	{
 		InitObstacles();
 		InitCharacters();
+		//StartCoroutine( NewCharacter() );
 	}
 
 	private void InitObstacles()
@@ -40,10 +41,11 @@ public class Manager : MonoBehaviour
 		}
 	}
 
-	private void AddCharacter()
+	private void AddCharacter( Vector3 pos )
 	{
 		Character newCharacter = Instantiate( characterPrefab );
 		InitCharacter( newCharacter );
+		newCharacter.transform.position = pos;
 		m_characters.Add( newCharacter.transform );
 		newCharacter.transform.parent = characterContainer;
 	}
@@ -52,5 +54,14 @@ public class Manager : MonoBehaviour
 	{
 		c.SetObstacles( m_obstacles );
 		c.SetCharacters( m_characters );
+	}
+
+	private IEnumerator NewCharacter()
+	{
+		yield return new WaitForSeconds( 1.0f );
+		Vector3 pos = Random.insideUnitSphere;
+		pos.y = 0;
+		AddCharacter( pos );
+		StartCoroutine( NewCharacter() );
 	}
 }
