@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour
 {
 	public float speed = 10.0f;
+
 	void Update()
 	{
 		if( Input.GetMouseButtonDown( 0 ) )
