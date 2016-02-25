@@ -711,6 +711,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436946982}
   m_RootOrder: 4
+--- !u!1 &93653010 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 188482, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
+  m_PrefabInternal: {fileID: 2100946575}
 --- !u!1 &96964595 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151998, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
@@ -3279,6 +3283,23 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 481028, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
   m_PrefabInternal: {fileID: 661980336}
+--- !u!1 &666441882 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 131082, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
+  m_PrefabInternal: {fileID: 2100946575}
+--- !u!114 &666441883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666441882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c4ef902c778461b950f81fa815956a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 2028058373}
+  destroyedObstacle: {fileID: 93653010}
 --- !u!1 &677072051 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 188482, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
@@ -11126,6 +11147,10 @@ Transform:
   - {fileID: 1317767047}
   m_Father: {fileID: 1851311424}
   m_RootOrder: 1
+--- !u!1 &2028058373 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 151998, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
+  m_PrefabInternal: {fileID: 2100946575}
 --- !u!4 &2031656223 stripped
 Transform:
   m_PrefabParentObject: {fileID: 481028, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
@@ -11421,7 +11446,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 131082, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 131082, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
       propertyPath: m_Name
