@@ -23,7 +23,7 @@ public class MoveBehavior : MonoBehaviour
 	private Rigidbody m_rigidbody;
 	private Vector3 m_dv;
 	private int m_frames = 2;
-	private int stageFrames = 5;
+	private int m_stageFrames = 5;
 
 	void Start()
 	{
@@ -174,7 +174,7 @@ public class MoveBehavior : MonoBehaviour
 
 	public bool OffStage( Vector3 center )
 	{
-		Vector3 changeInPos = m_rigidbody.velocity * stageFrames;
+		Vector3 changeInPos = m_rigidbody.velocity * m_stageFrames;
 		Vector3 futurePos = m_rigidbody.position + changeInPos;
 
 		if (futurePos.x < center.x - boundX) 
@@ -195,5 +195,75 @@ public class MoveBehavior : MonoBehaviour
 		}
 
 		return false;
+	}
+
+	// Path Following
+	public Vector3 PathFollow( Path path )
+	{
+		// Adapted from Shiffman's Path Following
+		Vector3 predict = m_rigidbody.velocity;
+		predict.Normalize();
+		predict *= maxSpeed;
+		Vector3 predictLoc = transform.position + predict;
+
+		Vector3 normal;
+		Vector3 target = Vector3.zero;
+		float worldRecord = 1000000;
+
+		for( int i = 0; i < path.Waypoints.Length; i++ )
+		{
+			Vector3 a = path.Waypoints[ i % path.Waypoints.Length ].position;
+			Vector3 b = path.Waypoints[ (i + 1) % path.Waypoints.Length ].position;
+
+			Vector3 normalPoint = GetNormalPoint( predictLoc, a, b );
+
+			Vector3 dir = b - a;
+
+			if ( normalPoint.x < Mathf.Min( a.x, b.x ) || normalPoint.x > Mathf.Max( a.x, b.x ) 
+				|| normalPoint.z < Mathf.Min( a.z, b.z ) || normalPoint.z > Mathf.Max( a.z, b.z ) )
+			{
+				normalPoint = b;
+
+				a = path.Waypoints[ ( i + 1 ) % path.Waypoints.Length ].position;
+				b = path.Waypoints[ ( i + 2 ) % path.Waypoints.Length ].position;
+				dir = b - a;
+			}
+
+			float d = Vector3.Distance( predictLoc, normalPoint );
+
+			if ( d < worldRecord )
+			{
+				worldRecord = d;
+				normal = normalPoint;
+
+				dir.Normalize();
+
+				dir *= maxSpeed;
+				target = normal;
+				target += dir;
+
+			}
+		}
+
+		if ( worldRecord > path.Radius )
+		{
+			return Seek( target );
+		} 
+		else
+		{
+			return Vector3.zero;
+		}
+	}
+
+	private Vector3 GetNormalPoint( Vector3 p, Vector3 a, Vector3 b )
+	{
+		Vector3 ap = p - a;
+
+		Vector3 ab = b - a;
+		ab.Normalize();
+
+		ab *= Vector3.Dot( ap, ab );
+		Vector3 normalPoint = a + ab;
+		return normalPoint;
 	}
 }

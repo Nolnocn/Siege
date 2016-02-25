@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
 {
 	// Temporary for testing
 	public FlowField flow;
+	public Path path;
 	public Vector3 center = Vector3.zero;
 
 	public Transform target;
@@ -27,6 +28,7 @@ public class Character : MonoBehaviour
 	public float wanderWt = 4.0f;
 	public float avoidanceWt = 25.0f;
 	public float boundsWt = 25.0f;
+	public float pathingWt = 0.0f;
 
 	private List<Transform> m_characters;
 	private Obstacle[] m_obstacles;
@@ -98,6 +100,11 @@ public class Character : MonoBehaviour
 		if( flow != null )
 		{
 			force += flowWt * m_movement.Flow( flow );
+		}
+
+		if( path != null )
+		{
+			force += pathingWt * m_movement.PathFollow( path );
 		}
 
 		if( shouldWander )
