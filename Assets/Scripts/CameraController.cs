@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
+	public float speed = 10.0f;
 	void Update()
 	{
 		if( Input.GetMouseButtonDown( 0 ) )
@@ -12,17 +13,17 @@ public class CameraController : MonoBehaviour
 		}
 		else if( Input.GetKeyDown( KeyCode.Escape ) )
 		{
-			//Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		}
 			
 		Vector3 mouseOffset = new Vector3(-Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0f );
 		Camera.main.transform.Rotate( mouseOffset * 2, Space.Self );
+
 		Vector3 lookDir = Camera.main.transform.position + Camera.main.transform.forward;
 		Camera.main.transform.LookAt( lookDir, Vector3.up );
 
 		Vector3 moveDir = new Vector3( Input.GetAxis( "Horizontal" ), 0, Input.GetAxis( "Vertical" ) );
-		transform.Translate( 5f * Time.deltaTime * moveDir );
+		transform.Translate( speed * Time.deltaTime * moveDir );
 
 		//StayInBounds();
 	}
