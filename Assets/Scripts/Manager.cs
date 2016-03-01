@@ -14,8 +14,8 @@ public class Manager : MonoBehaviour
 
 	void Start()
 	{
-		InitObstacles();
-		InitCharacters();
+		//InitObstacles();
+		//InitCharacters();
 		//StartCoroutine( NewCharacter() );
 	}
 
@@ -52,7 +52,7 @@ public class Manager : MonoBehaviour
 
 	private void InitCharacter( Character c )
 	{
-		c.SetObstacles( m_obstacles );
+		//c.SetObstacles( m_obstacles );
 		c.SetCharacters( m_characters );
 	}
 
