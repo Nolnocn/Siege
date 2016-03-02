@@ -9,24 +9,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1227330239, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
-  m_Name: AttackerBehaviors
+  m_Name: DefenderBehaviors
   m_EditorClassIdentifier: 
   _dataSerializer:
     _serializedData: <scriptableobject version="1.3" type="RAIN.BehaviorTrees.BTAsset"><fields><field
-      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;AttackerBehaviors&quot;
+      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;DefenderBehaviors&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
       repeatuntil=&quot;&quot; name=&quot;Patrol/Animate&quot; fail=&quot;all&quot;
       debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;VisualSensor&amp;quot;&quot;
       repeatuntil=&quot;success&quot; name=&quot;Find gate&quot; matchtype=&quot;any&quot;
       entityobjectvariable=&quot;gateSeen&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
       aspectvariable=&quot;gatePosition&quot; aspectobjectvariable=&quot;gate&quot;
-      aspect=&quot;&amp;quot;cubeSight&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      aspect=&quot;&amp;quot;Attacker&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; name=&quot;Did we find a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Not Found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;gateSeen == null&quot;&gt;&lt;waypointpatrol
-      waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
+      waypointsetvariable=&quot;&amp;quot;CastlePatrol&amp;quot;&quot; waypointactiontype=&quot;patrol&quot;
       traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
-      pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot; movetargetvariable=&quot;nextTarget&quot;
+      pathtargetvariable=&quot;&quot; name=&quot;Castle PAtrol&quot; movetargetvariable=&quot;nextTarget&quot;
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;180&quot; repeatuntil=&quot;&quot;
       name=&quot;move&quot; movetarget=&quot;nextTarget&quot; movespeed=&quot;2&quot;
       facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;5&quot;
@@ -37,7 +37,7 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;AttackRange&quot; repeatuntil=&quot;running&quot;
       name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;InRange&quot;
       debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;AttackRangePosition&quot;
-      aspectobjectvariable=&quot;&quot; aspect=&quot;cubeSight&quot; /&gt;&lt;selector
+      aspectobjectvariable=&quot;&quot; aspect=&quot;Attacker&quot; /&gt;&lt;selector
       usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Run at target
       or attack&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
       priority=&quot;&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot; constraint=&quot;inRange
