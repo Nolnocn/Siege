@@ -22,12 +22,19 @@ public class attack : RAINAction
 		if(attackTimer + attackCooldown<Time.time)
 		{
 			//GameObject detected = agent.WorkingMemory.GetItem.<GameObject>(“defenderAspect”);
-			GameObject detected = ai.WorkingMemory.GetItem ("enemyPosition") as GameObject;
+			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
+
+			if(detected == null)
+			{return ActionResult.FAILURE;}
+
+			Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
 			targetHealthscript = detected.GetComponent<Health> ();
 			targetHealthscript.hp -= 10;
 			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
+
 		}
+
 		return ActionResult.SUCCESS;
     }
 

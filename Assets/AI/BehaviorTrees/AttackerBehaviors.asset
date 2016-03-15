@@ -42,20 +42,14 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;180&quot; repeatuntil=&quot;&quot;
       name=&quot;move&quot; movetarget=&quot;enemyPosition&quot; movespeed=&quot;5&quot;
       facetarget=&quot;enemyPosition&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
-      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
-      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
-      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;/parallel&gt;&lt;constraint
-      repeatuntil=&quot;&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;inRange != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
-      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
-      name=&quot;move&quot; movetarget=&quot;&quot; movespeed=&quot;&quot; facetarget=&quot;&quot;
-      debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
-      /&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
-      namespace=&quot;(global)&quot; name=&quot;attack&quot; debugbreak=&quot;True&quot;
-      classname=&quot;attack&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      closeenoughangle=&quot;&quot; /&gt;&lt;action repeatuntil=&quot;failure&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;attack&quot; debugbreak=&quot;False&quot; classname=&quot;attack&quot;
+      /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;InRange&quot;
+      debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;AttackRangePosition&quot;
+      aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot;
+      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy not found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;enemySeen == null&quot;&gt;&lt;selector
       usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Did we find
