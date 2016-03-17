@@ -15,7 +15,7 @@ MonoBehaviour:
     _serializedData: <scriptableobject version="1.3" type="RAIN.BehaviorTrees.BTAsset"><fields><field
       value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;AttackerBehaviors&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;Patrol/Animate&quot; fail=&quot;all&quot;
+      repeatuntil=&quot;success&quot; name=&quot;Patrol/Animate&quot; fail=&quot;all&quot;
       debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;VisualSensor&amp;quot;&quot;
       repeatuntil=&quot;success&quot; name=&quot;Find enemy&quot; matchtype=&quot;any&quot;
       entityobjectvariable=&quot;enemySeen&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
@@ -51,17 +51,17 @@ MonoBehaviour:
       aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot;
       /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy not found&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;enemySeen == null&quot;&gt;&lt;selector
-      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Did we find
-      a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;Gate Not Found&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;gateSeen == null&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;RouteToCastle&quot;
-      waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot;
-      repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;route to
-      castle&quot; movetargetvariable=&quot;nextTarget&quot; debugbreak=&quot;False&quot;&gt;&lt;move
-      turnspeed=&quot;180&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;nextTarget&quot;
-      movespeed=&quot;2&quot; facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;5&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
+      debugbreak=&quot;False&quot; constraint=&quot;true&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Did we find a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Not Found&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;gateSeen == null&quot;&gt;&lt;waypointpatrol
+      waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
+      traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
+      pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot; movetargetvariable=&quot;nextTarget&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;180&quot; repeatuntil=&quot;&quot;
+      name=&quot;move&quot; movetarget=&quot;nextTarget&quot; movespeed=&quot;2&quot;
+      facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;5&quot;
+      closeenoughangle=&quot;5&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Found&quot; debugbreak=&quot;False&quot;
       constraint=&quot;gateSeen != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
