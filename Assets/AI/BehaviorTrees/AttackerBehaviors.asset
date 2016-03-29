@@ -39,16 +39,16 @@ MonoBehaviour:
       priority=&quot;&quot; name=&quot;chase target&quot; debugbreak=&quot;False&quot;
       constraint=&quot;inRange == null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;attack mover
-      node&quot; debugbreak=&quot;False&quot; classname=&quot;moveAttack&quot; /&gt;&lt;action
-      repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
-      namespace=&quot;(global)&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot;
-      classname=&quot;attack&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;attack&quot;
+      debugbreak=&quot;False&quot; classname=&quot;attack&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
       repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
       entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
       aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
-      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;move turnspeed=&quot;360&quot;
+      repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;enemySeen&quot;
+      movespeed=&quot;&quot; facetarget=&quot;enemySeen&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy not found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;true&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; name=&quot;Did we find a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
@@ -57,9 +57,10 @@ MonoBehaviour:
       waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
       traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
       pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot; movetargetvariable=&quot;nextTarget&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
-      classname=&quot;moveWaypoint&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
+      debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
+      name=&quot;move&quot; movetarget=&quot;nextTarget&quot; movespeed=&quot;&quot;
+      facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
+      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Found&quot; debugbreak=&quot;False&quot;
       constraint=&quot;gateSeen != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
