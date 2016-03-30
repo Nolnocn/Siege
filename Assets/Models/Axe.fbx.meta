@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e7a9c29aa9aa24e8bae3c8b4b94eb0dd
-timeCreated: 1459315298
+guid: ff2baf95b1c9543c4a3056b2bddf9f5d
+timeCreated: 1459316162
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Attacker Helmet
+    4300000: Axe
   materials:
     importMaterials: 1
     materialName: 0

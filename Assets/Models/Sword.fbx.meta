@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e7a9c29aa9aa24e8bae3c8b4b94eb0dd
-timeCreated: 1459315298
+guid: 4b74624962ac848f19b6cffb06434434
+timeCreated: 1459316161
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Attacker Helmet
+    4300000: Sword
   materials:
     importMaterials: 1
     materialName: 0

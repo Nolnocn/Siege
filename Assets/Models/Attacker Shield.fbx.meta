@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7a9c29aa9aa24e8bae3c8b4b94eb0dd
+guid: 57979a8b8966141efac3eced271f7a7c
 timeCreated: 1459315298
 licenseType: Free
 ModelImporter:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Attacker Helmet
+    4300000: Attacker Shield
   materials:
     importMaterials: 1
     materialName: 0
