@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4c7e98df90e7c43549cfafa463f2dd5b
-timeCreated: 1455774087
+guid: 947aa399965e149529decd23b331b457
+timeCreated: 1459831603
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Brick.052
+    4300000: Corner.003
   materials:
     importMaterials: 1
     materialName: 0
