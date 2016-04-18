@@ -18,7 +18,7 @@ public class WallHPCheck : RAINAction
 	
 	public override ActionResult Execute(RAIN.Core.AI ai)
 	{
-		GameObject detected = ai.WorkingMemory.GetItem ("Wall") as GameObject;
+		GameObject detected = ai.WorkingMemory.GetItem ("wall") as GameObject;
 		wallScript = detected.GetComponent<WallController> ();
 		
 		if(wallScript.health <= 0 || wallScript.health == 100)
@@ -27,8 +27,6 @@ public class WallHPCheck : RAINAction
 		}
 		
 		ai.WorkingMemory.SetItem("wallHealth", wallScript.health);
-		ai.WorkingMemory.ItemExists("wallHealth");
-		Debug.Log(ai.WorkingMemory.ItemExists("wallHealth"));
 		return ActionResult.SUCCESS;
 	}
 	
