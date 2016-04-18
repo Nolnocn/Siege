@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 75905f4c5d29d433a8ffbcbc81ea36f1
-timeCreated: 1455771622
+guid: 50a80ceaa609d4703aee7df77cc50772
+timeCreated: 1459832859
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: LHalf
+    4300000: Wall Crenellation
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +53,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

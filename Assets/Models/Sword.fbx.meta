@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d136fa8a645c9487ab9be6dea5e82f1c
-timeCreated: 1455771620
+guid: 4b74624962ac848f19b6cffb06434434
+timeCreated: 1459316161
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: RHalf
+    4300000: Sword
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +53,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

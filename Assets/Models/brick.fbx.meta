@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b549f9b8643544f0e834cb5528db83a1
-timeCreated: 1455771548
+guid: 417c87aff858a48139e40fcbe27cde8c
+timeCreated: 1459210367
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Brick
+    4300000: New Brick
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +53,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
