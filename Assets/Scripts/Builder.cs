@@ -25,12 +25,17 @@ public class Builder : MonoBehaviour {
         }
 	}
 
-    void RecieveResource(int res)
+	public int GetCurrentResources()
+	{
+		return m_numResHolding;
+	}
+
+    public void RecieveResource(int res)
     {
-        m_numResHolding = res;
+        m_numResHolding += res;
     }
 
-    int GiveResource()
+    public int GiveResource()
     {
         int temp = m_numResHolding;
         m_numResHolding = 0;

@@ -24,6 +24,8 @@ public class GatherResources : RAINAction
     {
         GameObject detected = ai.WorkingMemory.GetItem ("resource") as GameObject;
         resScript = detected.GetComponent<Resource> ();
+
+		builderScript.RecieveResource( resScript.GatherResource( gatherRate ) );
         //Debug.Log(builderScript);
 
         //if(resScript.health <= 0 || resScript.health == 100)
