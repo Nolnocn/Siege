@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Resource : MonoBehaviour {
 
-	int m_resourceLeft = 100;
+	private int m_resourceLeft = 100;
 	bool canGather = true;
 
 	// Use this for initialization
@@ -28,7 +28,9 @@ public class Resource : MonoBehaviour {
 		{
 			if( amtToGather > m_resourceLeft )
 			{
-				return m_resourceLeft;
+				int temp = m_resourceLeft;
+				m_resourceLeft = 0;
+				return temp;
 			}
 			else
 			{

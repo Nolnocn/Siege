@@ -5,28 +5,29 @@ using RAIN.Action;
 using RAIN.Core;
 
 [RAINAction]
-public class WallHPCheck : RAINAction
+public class CheckMyRes : RAINAction
 {
 	
 	GameObject detected;
-	WallController wallScript;
+	Builder builderScript;
 	
 	public override void Start(RAIN.Core.AI ai)
 	{
 		base.Start(ai);
+		builderScript = ai.Body.GetComponent<Builder>();
 	}
 	
 	public override ActionResult Execute(RAIN.Core.AI ai)
 	{
-		GameObject detected = ai.WorkingMemory.GetItem ("wall") as GameObject;
-		wallScript = detected.GetComponent<WallController> ();
-		
-		if(wallScript.health <= 0 || wallScript.health == 100)
+		int numRes = builderScript.GetCurrentResources();
+
+		if(numRes <= 0)
 		{
-			return ActionResult.FAILURE;
+			ai.WorkingMemory.SetItem("holdingRes", false);
+		    return ActionResult.FAILURE;
 		}
 		
-		ai.WorkingMemory.SetItem("wallHealth", wallScript.health);
+		ai.WorkingMemory.SetItem("holdingRes", true);
 		return ActionResult.SUCCESS;
 	}
 	

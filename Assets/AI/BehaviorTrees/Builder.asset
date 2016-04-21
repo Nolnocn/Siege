@@ -16,23 +16,48 @@ MonoBehaviour:
       value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;Builder&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
       repeatuntil=&quot;&quot; name=&quot;Search for weakened wall and repair it or
-      wait&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;BuilderVision&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;Look for wall&quot; matchtype=&quot;all&quot;
-      entityobjectvariable=&quot;wallFound&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
-      aspectvariable=&quot;wallPosition&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;Wall&amp;quot;&quot;
-      /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Did
-      I find a wall&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;I did not find a wall&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;wallSeen == null&quot; /&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;I found a wall&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;wallSeen !=null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
-      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;Figure out if wall
-      needs repair&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
+      wait&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;builderVision&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;Look for wall&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;wallSeen&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
+      aspectvariable=&quot;wallPosition&quot; aspectobjectvariable=&quot;wall&quot;
+      aspect=&quot;&amp;quot;wallAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Did I find a wall&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;I did not find a wall&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;wallSeen == null&quot; /&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;I found a wall&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;wallSeen !=null&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;Figure out if wall needs repair&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
       repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
       namespace=&quot;(global)&quot; name=&quot;Check wall health&quot; debugbreak=&quot;False&quot;
       classname=&quot;WallHPCheck&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
-      repeatuntil=&quot;&quot; name=&quot;selector&quot; debugbreak=&quot;False&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      repeatuntil=&quot;&quot; name=&quot;is wall damaged&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;does not need repair&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;wallHealth &amp;gt;= 100&quot;
+      /&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;needs
+      repair&quot; debugbreak=&quot;False&quot; constraint=&quot;wallHealth &amp;lt;
+      100&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;move and pick up resource&quot; fail=&quot;any&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;pickupRange&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;am I in range of resources(pickup)&quot;
+      matchtype=&quot;best&quot; entityobjectvariable=&quot;resInRange&quot; debugbreak=&quot;False&quot;
+      consistent=&quot;False&quot; aspectvariable=&quot;resourcePosition&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&amp;quot;resourceAspect&amp;quot;&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;builderVision&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;can I see the resources(visual)&quot;
+      matchtype=&quot;best&quot; entityobjectvariable=&quot;resourceSeen&quot; debugbreak=&quot;False&quot;
+      consistent=&quot;False&quot; aspectvariable=&quot;resourcePosition&quot; aspectobjectvariable=&quot;resource&quot;
+      aspect=&quot;&amp;quot;resourceAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;pick up resource or move closer&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;resource not in range(move
+      closer)&quot; debugbreak=&quot;False&quot; constraint=&quot;resInRange == null&quot;&gt;&lt;move
+      turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move to resource&quot;
+      movetarget=&quot;resourcePosition&quot; movespeed=&quot;5&quot; facetarget=&quot;resourcePosition&quot;
+      debugbreak=&quot;False&quot; closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;&quot;
+      /&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;resource in range(pick up)&quot; debugbreak=&quot;False&quot; constraint=&quot;resInRange
+      != null&quot;&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      debugbreak=&quot;False&quot; classname=&quot;GatherResources&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
