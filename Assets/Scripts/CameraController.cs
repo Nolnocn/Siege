@@ -3,7 +3,14 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
+	SmoothFollow smoothFollow;
+	Transform emptyTrans;
 	public float speed = 10.0f;
+
+	void Start()
+	{
+		smoothFollow = Camera.main.transform.GetComponent<SmoothFollow> ();
+	}
 
 	void Update()
 	{
@@ -11,10 +18,24 @@ public class CameraController : MonoBehaviour
 		{
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
+
+			//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			//RaycastHit hit;
+			Ray ray = ( Camera.main.ScreenPointToRay(Input.mousePosition)); //create the ray
+			RaycastHit hit;
+			if(Physics.Raycast(ray,out hit))
+			{
+				if (hit.transform.tag == "Defender") //did we hit the ground?	
+				{
+					//Turn on smoothfollow script on the hit target
+					smoothFollow.target = hit.transform;
+				}
+			}
 		}
 		else if( Input.GetKeyDown( KeyCode.Escape ) )
 		{
 			Cursor.visible = true;
+			smoothFollow.target = emptyTrans;
 		}
 			
 		Vector3 mouseOffset = new Vector3(-Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0f );
