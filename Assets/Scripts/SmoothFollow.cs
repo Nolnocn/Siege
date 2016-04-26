@@ -23,7 +23,7 @@ public class SmoothFollow : MonoBehaviour {
         if (!target)
             return;
 
-
+		//gameObject.transform.Rotate (rotation);
         float wantedHeight = target.position.y + height;
         float currentHeight = transform.position.y;
 
