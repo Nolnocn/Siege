@@ -37,11 +37,20 @@ MonoBehaviour:
       /&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;needs
       repair&quot; debugbreak=&quot;False&quot; constraint=&quot;wallHealth &amp;lt;
       100&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;move and pick up resource&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;pickupRange&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;am I in range of resources(pickup)&quot;
-      matchtype=&quot;best&quot; entityobjectvariable=&quot;resInRange&quot; debugbreak=&quot;False&quot;
-      consistent=&quot;False&quot; aspectvariable=&quot;resourcePosition&quot; aspectobjectvariable=&quot;&quot;
+      repeatuntil=&quot;&quot; name=&quot;check if holding resources&quot; fail=&quot;any&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;running&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;resource check&quot;
+      debugbreak=&quot;False&quot; classname=&quot;CheckMyRes&quot; /&gt;&lt;selector
+      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;am I holding
+      resources&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;no I am not&quot; debugbreak=&quot;False&quot;
+      constraint=&quot;holdingRes == false&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;move and pick up
+      resource&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect
+      sensor=&quot;&amp;quot;pickupRange&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;am I in range of resources(pickup)&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;resInRange&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
+      aspectvariable=&quot;resourcePosition&quot; aspectobjectvariable=&quot;&quot;
       aspect=&quot;&amp;quot;resourceAspect&amp;quot;&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;builderVision&amp;quot;&quot;
       repeatuntil=&quot;running&quot; name=&quot;can I see the resources(visual)&quot;
       matchtype=&quot;best&quot; entityobjectvariable=&quot;resourceSeen&quot; debugbreak=&quot;False&quot;
@@ -57,7 +66,18 @@ MonoBehaviour:
       name=&quot;resource in range(pick up)&quot; debugbreak=&quot;False&quot; constraint=&quot;resInRange
       != null&quot;&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
-      debugbreak=&quot;False&quot; classname=&quot;GatherResources&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      debugbreak=&quot;False&quot; classname=&quot;GatherResources&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;yes I am&quot; debugbreak=&quot;False&quot;
+      constraint=&quot;holdingRes == true&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;move to wall and
+      repair&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;&quot;
+      repeatuntil=&quot;&quot; name=&quot;move to wall&quot; movetarget=&quot;wallPosition&quot;
+      movespeed=&quot;5&quot; facetarget=&quot;wallPosition&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;&quot; /&gt;&lt;detect
+      sensor=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;am I in range of wall&quot;
+      matchtype=&quot;best&quot; entityobjectvariable=&quot;&quot; debugbreak=&quot;False&quot;
+      consistent=&quot;True&quot; aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []

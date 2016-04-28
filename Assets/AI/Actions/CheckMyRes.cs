@@ -24,7 +24,7 @@ public class CheckMyRes : RAINAction
 		if(numRes <= 0)
 		{
 			ai.WorkingMemory.SetItem("holdingRes", false);
-		    return ActionResult.FAILURE;
+            return ActionResult.SUCCESS;
 		}
 		
 		ai.WorkingMemory.SetItem("holdingRes", true);
