@@ -22,18 +22,11 @@ public class GatherResources : RAINAction
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
-        GameObject detected = ai.WorkingMemory.GetItem ("resource") as GameObject;
+        detected = ai.WorkingMemory.GetItem ("resource") as GameObject;
         resScript = detected.GetComponent<Resource> ();
 
 		builderScript.RecieveResource( resScript.GatherResource( gatherRate ) );
-        //Debug.Log(builderScript);
 
-        //if(resScript.health <= 0 || resScript.health == 100)
-        //{
-        //    return ActionResult.FAILURE;
-        //}
-
-        //ai.WorkingMemory.SetItem("wallHealth", resScript.health);
         return ActionResult.SUCCESS;
     }
 

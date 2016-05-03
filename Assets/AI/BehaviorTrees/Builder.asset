@@ -74,13 +74,21 @@ MonoBehaviour:
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;yes I am&quot; debugbreak=&quot;False&quot;
       constraint=&quot;holdingRes == true&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;move to wall and
-      repair&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;&quot;
-      repeatuntil=&quot;&quot; name=&quot;move to wall&quot; movetarget=&quot;wallPosition&quot;
-      movespeed=&quot;5&quot; facetarget=&quot;wallPosition&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;&quot; /&gt;&lt;action
+      repair&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
+      repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;wall close enough&quot; debugbreak=&quot;False&quot;
+      classname=&quot;CheckWallRange&quot; /&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
+      name=&quot;move to wall&quot; movetarget=&quot;wallPosition&quot; movespeed=&quot;5&quot;
+      facetarget=&quot;wallPosition&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;5&quot;
+      closeenoughangle=&quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;is wall in touch range&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;wall not in range&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;wallInRange == false&quot; /&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;wall in range&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;wallInRange == true&quot;&gt;&lt;action
       repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
       namespace=&quot;(global)&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
-      classname=&quot;WallInReach&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      classname=&quot;RepairWall&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
