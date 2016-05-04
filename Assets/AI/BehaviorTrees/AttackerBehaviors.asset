@@ -21,73 +21,76 @@ MonoBehaviour:
       entityobjectvariable=&quot;enemySeen&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
       aspectvariable=&quot;enemyPosition&quot; aspectobjectvariable=&quot;enemy&quot;
       aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;VisualSensor&amp;quot;&quot;
-      repeatuntil=&quot;success&quot; name=&quot;Find gate&quot; matchtype=&quot;any&quot;
+      repeatuntil=&quot;running&quot; name=&quot;Find gate&quot; matchtype=&quot;any&quot;
       entityobjectvariable=&quot;gateSeen&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
       aspectvariable=&quot;gatePosition&quot; aspectobjectvariable=&quot;gate&quot;
-      aspect=&quot;&amp;quot;cubeSight&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
-      repeatuntil=&quot;success&quot; name=&quot;Did we find enemy&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
-      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy found&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;enemySeen != null&quot;&gt;&lt;parallel
+      aspect=&quot;&amp;quot;GateAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;success&quot; name=&quot;Did we find enemy&quot; debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol
+      waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
+      traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
+      priority=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot;
+      movetargetvariable=&quot;nextTarget&quot; debugbreak=&quot;False&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
-      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect
-      sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot; repeatuntil=&quot;running&quot;
-      name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;InRange&quot;
-      debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;AttackRangePosition&quot;
-      aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot;
-      /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Run
-      at target or attack&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;chase target&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;inRange == null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
-      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;attack&quot;
-      debugbreak=&quot;False&quot; classname=&quot;attack&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
-      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
-      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
-      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;move turnspeed=&quot;360&quot;
-      repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;enemySeen&quot;
-      movespeed=&quot;&quot; facetarget=&quot;enemySeen&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;7&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
-      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy not found&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;enemySeen == null&quot;&gt;&lt;selector
-      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Did we find
-      a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;Gate Not Found&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;gateSeen == null&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;RouteToCastle&quot;
-      waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot;
-      repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;route to
-      castle&quot; movetargetvariable=&quot;nextTarget&quot; debugbreak=&quot;False&quot;&gt;&lt;parallel
-      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
-      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; name=&quot;enemy not found&quot; debugbreak=&quot;False&quot;
+      constraint=&quot;enemySeen == null&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Did we find a gate&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Not Found&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;gateSeen == null&quot;&gt;&lt;waypointpatrol
+      waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
+      traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
+      pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot; movetargetvariable=&quot;nextTarget&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;nextTarget&quot;
       movespeed=&quot;&quot; facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot;
       closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Gate Found&quot; debugbreak=&quot;False&quot;
       constraint=&quot;gateSeen != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;AttackRange&quot; repeatuntil=&quot;running&quot;
-      name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;InRange&quot;
-      debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;AttackRangePosition&quot;
-      aspectobjectvariable=&quot;&quot; aspect=&quot;cubeSight&quot; /&gt;&lt;selector
-      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Run at target
-      or attack&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot; constraint=&quot;inRange
-      != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
-      turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;&quot;
-      movespeed=&quot;&quot; facetarget=&quot;&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;action
-      repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
-      namespace=&quot;(global)&quot; name=&quot;attack&quot; debugbreak=&quot;True&quot;
-      classname=&quot;attack&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
+      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&amp;quot;GateAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Run at target or attack&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;chase target&quot;
       debugbreak=&quot;False&quot; constraint=&quot;inRange == null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
-      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
-      turnspeed=&quot;180&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;gatePosition&quot;
-      movespeed=&quot;5&quot; facetarget=&quot;gatePosition&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
+      repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot;
+      classname=&quot;attack&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
+      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&amp;quot;Gate&amp;quot;&quot; /&gt;&lt;move turnspeed=&quot;360&quot;
+      repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;gateSeen&quot;
+      movespeed=&quot;&quot; facetarget=&quot;gateSeen&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;7&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; name=&quot;enemy found&quot; debugbreak=&quot;False&quot;
+      constraint=&quot;enemySeen != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
+      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Run at target or attack&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;chase target&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;inRange == null&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
+      repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;attack&quot; debugbreak=&quot;False&quot;
+      classname=&quot;attack&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;InRangeCheck&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;InRange&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
+      aspectvariable=&quot;AttackRangePosition&quot; aspectobjectvariable=&quot;&quot;
+      aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;move turnspeed=&quot;360&quot;
+      repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;enemySeen&quot;
+      movespeed=&quot;&quot; facetarget=&quot;enemySeen&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;7&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/parallel&gt;&lt;/waypointpatrol&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []

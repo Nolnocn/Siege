@@ -22,19 +22,27 @@ public class attack : RAINAction
 		if(attackTimer + attackCooldown<Time.time)
 		{
 			//GameObject detected = agent.WorkingMemory.GetItem.<GameObject>(“defenderAspect”);
-			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
 
-			if(detected.activeSelf == false )
+			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
+			if (detected == null) {
+				 detected = ai.WorkingMemory.GetItem ("gate") as GameObject;
+			}
+
+			/*if(detected.activeSelf == false )
 			{
 				Debug.Log ("In detected == null");
 				detected = null;
 				//RAIN.Core.AI.AIInit();
 				return ActionResult.FAILURE;
-			}
+			}*/
 
 			Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
 			targetHealthscript = detected.GetComponent<Health> ();
-			targetHealthscript.hp -= 50;
+			targetHealthscript.hp -= 15;
+			if (targetHealthscript.hp < 0) {
+				detected = null;
+				return ActionResult.FAILURE;
+			}
 			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
 
