@@ -23,11 +23,11 @@ public class CheckWallRange : RAINAction
 
 		if ( dist > 5 )
 		{
-			ai.WorkingMemory.SetItem( "wallInRange", false );
-			return ActionResult.SUCCESS;
+            ai.WorkingMemory.SetItem( "wallInRange", false );
+            return ActionResult.FAILURE;
 		}
 
-		ai.WorkingMemory.SetItem( "wallInRange", true );
+        ai.WorkingMemory.SetItem( "wallInRange", true );
 		return ActionResult.SUCCESS;
 	}
 

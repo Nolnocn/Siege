@@ -36,7 +36,7 @@ public class attack : RAINAction
 				return ActionResult.FAILURE;
 			}*/
 
-			Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
+			//Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
 			targetHealthscript = detected.GetComponent<Health> ();
 			targetHealthscript.hp -= 15;
 			if (targetHealthscript.hp < 0) {

@@ -22,11 +22,13 @@ public class WallHPCheck : RAINAction
 		wallScript = detected.GetComponent<WallController> ();
 		
 		if(wallScript.health <= 0 || wallScript.health == 100)
-		{
+        {
+            ai.WorkingMemory.SetItem("wallHealth", wallScript.health);
 			return ActionResult.FAILURE;
 		}
 		
 		ai.WorkingMemory.SetItem("wallHealth", wallScript.health);
+        Debug.Log("Wall health: " + ai.WorkingMemory.GetItem("wallHealth"));
 		return ActionResult.SUCCESS;
 	}
 	
