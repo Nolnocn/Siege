@@ -16,17 +16,16 @@ public class ChooseWall : RAINAction
     {
         base.Start(ai);
         wallAspects = ai.WorkingMemory.GetItem<IList<RAINAspect>>("walls");
-        //Debug.Log(wallAspects.Count);
     }
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
         for( int i = 0; i < wallAspects.Count; i++ )
         {
-            wall = wallAspects[1].Entity.Form.gameObject;
+            wall = wallAspects[i].Entity.Form.gameObject;
             wallScript = wall.GetComponent<WallController>();
 
-            Debug.Log("wall 2 health: " + wallScript.health);
+            //Debug.Log("wall 2 health: " + wallScript.health);
             if (wallScript.health < 100)
             {
                 ai.WorkingMemory.SetItem("wallPosition", wall.transform.position);

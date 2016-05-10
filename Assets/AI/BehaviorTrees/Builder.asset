@@ -17,10 +17,12 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
       repeatuntil=&quot;&quot; name=&quot;Search for weakened wall and repair it or
       wait&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;builderVision&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;Look for wall&quot; matchtype=&quot;best&quot;
+      repeatuntil=&quot;running&quot; name=&quot;Look for wall&quot; matchtype=&quot;all&quot;
       entityobjectvariable=&quot;wallSeen&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
-      aspectvariable=&quot;wallPosition&quot; aspectobjectvariable=&quot;wall&quot;
-      aspect=&quot;&amp;quot;wallAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      aspectvariable=&quot;walls&quot; aspectobjectvariable=&quot;wall&quot; aspect=&quot;&amp;quot;wallAspect&amp;quot;&quot;
+      /&gt;&lt;action repeatuntil=&quot;running&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
+      classname=&quot;ChooseWall&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; name=&quot;Did I find a wall&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;I did not find a wall&quot;
       debugbreak=&quot;False&quot; constraint=&quot;wallSeen == null&quot;&gt;&lt;waypointpatrol
