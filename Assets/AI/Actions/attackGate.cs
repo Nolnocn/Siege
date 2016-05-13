@@ -4,16 +4,14 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
-
 [RAINAction]
-public class attack : RAINAction
+public class attackGate : RAINAction
 {
+
 	GameObject detected;
 	float attackCooldown = 2f;
 	float attackTimer = 0f;
 	Health targetHealthscript;
-
-	//tRig.AI.WorkingMemory.SetItem<SoldierAmmo>("MyAmmo", _startingAmmo);
 
     public override void Start(RAIN.Core.AI ai)
     {
@@ -26,9 +24,9 @@ public class attack : RAINAction
 		{
 			//GameObject detected = agent.WorkingMemory.GetItem.<GameObject>(“defenderAspect”);
 
-			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
+			GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
 			if (detected == null) {
-				 detected = ai.WorkingMemory.GetItem ("gate") as GameObject;
+				detected = ai.WorkingMemory.GetItem ("gate") as GameObject;
 			}
 
 			/*if(detected.activeSelf == false )
@@ -60,7 +58,8 @@ public class attack : RAINAction
 
 		}
 
-		return ActionResult.SUCCESS;
+
+        return ActionResult.SUCCESS;
     }
 
     public override void Stop(RAIN.Core.AI ai)
