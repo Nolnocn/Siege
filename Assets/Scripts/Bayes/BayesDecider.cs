@@ -95,6 +95,11 @@ namespace Bayes
 			obsTab.Add( obs );
 		}
 
+		public void AddObservation( Observation obs )
+		{
+			obsTab.Add( obs );
+		}
+
 		// Dump obsTab to text file fName so it can be read next time
 		public void Tab2File()
 		{
@@ -274,6 +279,62 @@ namespace Bayes
 			/* */
 
 			return outcomeYes > outcomeNo;
+		}
+
+		// Dump all the statistics to the Console for debugging purposes
+		public void DumpStats ()
+		{
+			string output = "";
+			output += "Overall Repair Outcomes:\n";
+
+			int[] outcomeCounts = outcomeAction.GetCounts();
+			double[] outcomeProps = outcomeAction.GetProportions();
+			output += string.Format("#True  {0}  Proportion {1:F3}", outcomeCounts[0], outcomeProps[0]);
+			output += "\n";
+			output += string.Format("#False {0}  Proportion {1:F3}", outcomeCounts[1], outcomeProps[1]);
+			output += "\n\n";
+
+			for( int i = 0; i < continuousConditions.Length; i++ )
+			{
+				BayesContinuousCondition cc = continuousConditions[ i ];
+				output += cc.Name + "\n";
+				output += DumpContAttr( cc.GetMean( 0 ), cc.GetMean( 1 ), cc.GetStdDev( 0 ), cc.GetStdDev( 1 ) );
+			}
+
+			output += "\n";
+
+			foreach( BayesDiscreteCondition dc in discreteConditions )
+			{
+				output += dc.Name + "\n";
+				int[,] counts = dc.GetCounts();
+				double[,] prps = dc.GetProportions();
+				for( int i = 0; i < counts.GetLength( 0 ); i++ )
+				{
+					output += "Value: " + i;
+					output += " True: ";
+					output += string.Format(" Count: {0:D}", counts[i, 0]);
+					output += string.Format(" Prop: {0:F4} ", prps[i, 0]);
+
+					output += " False: ";
+					output += string.Format(" Count: {0:D}", counts[i, 1]);
+					output += string.Format(" Prop: {0:F4} ", prps[i, 1]);
+					output += "\n";
+				}
+			}
+
+			Debug.Log( output );
+		}
+
+		// Dump a continuous attribute's statistics
+		private string DumpContAttr( double mT, double mF, double sdT, double sdF )
+		{
+			string o = "";
+			o += " MeanT   MeanF   StDvT   StDvF\n";
+			o += string.Format("{0,6:F2}  {1,6:F2} ", mT, mF);
+			o += string.Format(" {0,6:F2}  {1,6:F2} ", sdT, sdF);
+			o += "\n";
+
+			return o;
 		}
 	}
 }
