@@ -46,8 +46,10 @@ public class CameraController : MonoBehaviour
 		{
 			Cursor.visible = true;
 			smoothFollow.target = emptyTrans;
-			for (int i = 0; i < AiRig.Length; i++) {
-				AiRig[i].enabled = false;
+			if (AiRig != null) {
+				for (int i = 0; i < AiRig.Length; i++) {
+					AiRig [i].enabled = false;
+				}
 			}
 		}
 			

@@ -6,7 +6,7 @@ public class AttackerSpawningScript : MonoBehaviour {
 	public GameObject AttackerPrefab;
 
 	float timeToSpawn = -10;
-	float spawnerIncrement = 15;
+	public float spawnerIncrement = 15;
 
 	// Use this for initialization
 	void Start () {

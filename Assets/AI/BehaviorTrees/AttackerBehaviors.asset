@@ -17,19 +17,15 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;any&quot;
       repeatuntil=&quot;&quot; name=&quot;Patrol/Animate&quot; fail=&quot;any&quot;
       debugbreak=&quot;False&quot;&gt;&lt;detect sensor=&quot;&amp;quot;Visual Sensor&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;Find gate&quot; matchtype=&quot;any&quot;
-      entityobjectvariable=&quot;gateSeen&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
-      aspectvariable=&quot;gatePosition&quot; aspectobjectvariable=&quot;gate&quot;
-      aspect=&quot;&amp;quot;gateAspect&amp;quot;&quot; /&gt;&lt;detect sensor=&quot;&amp;quot;Visual
-      Sensor&amp;quot;&quot; repeatuntil=&quot;running&quot; name=&quot;Find enemy&quot;
-      matchtype=&quot;any&quot; entityobjectvariable=&quot;enemySeen&quot; debugbreak=&quot;False&quot;
-      consistent=&quot;False&quot; aspectvariable=&quot;enemyPosition&quot; aspectobjectvariable=&quot;enemy&quot;
+      repeatuntil=&quot;running&quot; name=&quot;Find enemy&quot; matchtype=&quot;any&quot;
+      entityobjectvariable=&quot;enemySeen&quot; debugbreak=&quot;False&quot; consistent=&quot;False&quot;
+      aspectvariable=&quot;enemyPosition&quot; aspectobjectvariable=&quot;enemy&quot;
       aspect=&quot;&amp;quot;defenderAspect&amp;quot;&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; name=&quot;Did we find enemy&quot; debugbreak=&quot;False&quot;&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy not found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;enemySeen == null&quot;&gt;&lt;waypointpatrol
       waypointsetvariable=&quot;RouteToCastle&quot; waypointactiontype=&quot;patrol&quot;
-      traversetype=&quot;loop&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
+      traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
       pathtargetvariable=&quot;&quot; name=&quot;route to castle&quot; movetargetvariable=&quot;nextTarget&quot;
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
       name=&quot;move&quot; movetarget=&quot;nextTarget&quot; movespeed=&quot;&quot;
