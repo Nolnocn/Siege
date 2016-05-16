@@ -4,6 +4,7 @@ using System.Collections;
 public class Resource : MonoBehaviour {
 
 	private int m_resourceLeft = 100;
+    public int health = 100;
 	bool canGather = true;
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class Resource : MonoBehaviour {
 			m_resourceLeft = 0;
 			canGather = false;
 		}
+        health = m_resourceLeft;
 	}
 
 	public int GatherResource( int amtToGather )

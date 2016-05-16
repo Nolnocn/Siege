@@ -10,7 +10,7 @@ public class ChooseWall : RAINAction
 {
     IList<RAINAspect> wallAspects;
     GameObject wall;
-    WallController wallScript;
+    Health wallScript;
 
     public override void Start(RAIN.Core.AI ai)
     {
@@ -20,13 +20,27 @@ public class ChooseWall : RAINAction
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
+        if (ai.WorkingMemory.GetItem("wall") != null)
+        {
+            wall = ai.WorkingMemory.GetItem("wall") as GameObject;
+            wallScript = wall.GetComponent<Health>();
+
+            if (wallScript.hp < 100)
+            {
+                ai.WorkingMemory.SetItem("wallPosition", wall.transform.position);
+                ai.WorkingMemory.SetItem("wallSeen", wall);
+                ai.WorkingMemory.SetItem("wall", wall);
+                return ActionResult.SUCCESS;
+            }
+        }
+
         for( int i = 0; i < wallAspects.Count; i++ )
         {
             wall = wallAspects[i].Entity.Form.gameObject;
-            wallScript = wall.GetComponent<WallController>();
+            wallScript = wall.GetComponent<Health>();
 
-            //Debug.Log("wall 2 health: " + wallScript.health);
-            if (wallScript.health < 100)
+            Debug.Log("wall 2 health: " + wallAspects.Count);
+            if (wallScript.hp < 100)
             {
                 ai.WorkingMemory.SetItem("wallPosition", wall.transform.position);
                 ai.WorkingMemory.SetItem("wallSeen", wall);

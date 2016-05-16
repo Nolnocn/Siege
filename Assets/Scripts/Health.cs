@@ -16,4 +16,12 @@ public class Health : MonoBehaviour {
 			gameObject.SetActive(false);
 		}
 	}
+
+    public void Heal(int amt)
+    {
+        if( hp < 100 )
+        {
+            hp += amt;
+        }
+    }
 }
