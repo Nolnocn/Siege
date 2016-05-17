@@ -27,17 +27,40 @@ MonoBehaviour:
       waypointsetvariable=&quot;&amp;quot;CastlePatrol&amp;quot;&quot; waypointactiontype=&quot;patrol&quot;
       traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
       pathtargetvariable=&quot;&quot; name=&quot;Castle Patrol&quot; movetargetvariable=&quot;nextTarget&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;180&quot; repeatuntil=&quot;&quot;
-      name=&quot;move&quot; movetarget=&quot;nextTarget&quot; movespeed=&quot;4&quot;
-      facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;5&quot;
-      closeenoughangle=&quot;5&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
+      debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      turnspeed=&quot;180&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;nextTarget&quot;
+      movespeed=&quot;4&quot; facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;5&quot; /&gt;&lt;mecparam
+      valueexpression=&quot;1&quot; repeatuntil=&quot;&quot; parametertype=&quot;trigger&quot;
+      parametername=&quot;Run&quot; name=&quot;mecparam&quot; debugbreak=&quot;False&quot;
+      damptime=&quot;0&quot; /&gt;&lt;/parallel&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;enemy found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;enemySeen != null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect
+      sensor=&quot;&amp;quot;InRangeSensor&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;detect&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;InRangeSeen&quot;
+      debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;InRangePosition&quot;
+      aspectobjectvariable=&quot;InRange&quot; aspect=&quot;&amp;quot;attackerAspect&amp;quot;&quot;
+      /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;selector&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;constraint&quot; debugbreak=&quot;False&quot; constraint=&quot;InRangeSeen
+      ==null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      turnspeed=&quot;280&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;enemySeen&quot;
+      movespeed=&quot;7&quot; facetarget=&quot;enemySeen&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;InAttackRange&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;InRangeSeen !=null&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
       name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;action
-      repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      repeatuntil=&quot;failure&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
       namespace=&quot;&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
-      classname=&quot;attack&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      classname=&quot;attack&quot; /&gt;&lt;mecparam valueexpression=&quot;1&quot;
+      repeatuntil=&quot;&quot; parametertype=&quot;trigger&quot; parametername=&quot;Melee&quot;
+      name=&quot;mecparam&quot; debugbreak=&quot;False&quot; damptime=&quot;0&quot;
+      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []

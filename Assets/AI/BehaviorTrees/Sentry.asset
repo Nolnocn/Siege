@@ -26,16 +26,24 @@ MonoBehaviour:
       == null&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;rampartPatrol&quot;
       waypointactiontype=&quot;patrol&quot; traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot;
       repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;waypointpath&quot;
-      movetargetvariable=&quot;nextPosition&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      movetargetvariable=&quot;nextPosition&quot; debugbreak=&quot;False&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;180&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;nextPostion&quot;
       movespeed=&quot;8&quot; facetarget=&quot;nextPosition&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;25&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;25&quot; /&gt;&lt;mecparam
+      valueexpression=&quot;1&quot; repeatuntil=&quot;&quot; parametertype=&quot;trigger&quot;
+      parametername=&quot;Bow&quot; name=&quot;mecparam&quot; debugbreak=&quot;False&quot;
+      damptime=&quot;0&quot; /&gt;&lt;/parallel&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;constraint&quot; debugbreak=&quot;False&quot;
       constraint=&quot;enemySeen != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
       debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;attack&quot;
-      debugbreak=&quot;False&quot; classname=&quot;SentryAttack&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      debugbreak=&quot;False&quot; classname=&quot;SentryAttack&quot; /&gt;&lt;mecparam
+      valueexpression=&quot;1&quot; repeatuntil=&quot;&quot; parametertype=&quot;trigger&quot;
+      parametername=&quot;Bow&quot; name=&quot;mecparam&quot; debugbreak=&quot;False&quot;
+      damptime=&quot;0&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
