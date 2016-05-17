@@ -5,9 +5,11 @@ using RAIN;
 public class CameraController : MonoBehaviour
 {
 	SmoothFollow smoothFollow;
-	MonoBehaviour playercontrollerScript;
+	//MonoBehaviour playercontrollerScript;
+	NavMeshAgent controlledObjectsAgent;
+	GameObject controlledIndicator = null;
 	Transform emptyTrans;
-	RAIN.Core.AIRig[] AiRig;
+	public RAIN.Core.AIRig[] AiRig;
 	public float speed = 10.0f;
 
 	void Start()
@@ -24,19 +26,16 @@ public class CameraController : MonoBehaviour
 
 			//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			//RaycastHit hit;
-			if (smoothFollow.target == emptyTrans) {
+			if (controlledIndicator == null) {
 				Ray ray = (Camera.main.ScreenPointToRay (Input.mousePosition)); //create the ray
 				RaycastHit hit;
 				if (Physics.Raycast (ray, out hit)) {
 					if (hit.transform.tag == "Defender") { //did we hit the defender?	
-						
+						controlledObjectsAgent = hit.transform.gameObject.GetComponent<NavMeshAgent>();
 						AiRig = hit.transform.GetComponents<RAIN.Core.AIRig> ();
-						playercontrollerScript = hit.transform.GetComponent("ThirdPersonCharacter") as MonoBehaviour;
-						playercontrollerScript.enabled = true;
-						//print(hit.transform.GetComponents<RAIN.Core.AIRig> ());
-
-						//Turn on smoothfollow script on the hit target
-						smoothFollow.target = hit.transform;
+						controlledIndicator = hit.transform.FindChild ("AmIControlled").gameObject;
+						controlledIndicator.SetActive (true);
+					
 						for (int i = 0; i < AiRig.Length; i++) {
 							AiRig[i].enabled = false;
 						}
@@ -45,14 +44,26 @@ public class CameraController : MonoBehaviour
 				}
 			}
 		}
+		else if (Input.GetMouseButtonDown (1) && controlledIndicator != null){
+			Ray ray = (Camera.main.ScreenPointToRay (Input.mousePosition)); //create the ray
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit)) {
+				controlledObjectsAgent.destination = hit.point;
+			}
+		}
 		else if( Input.GetKeyDown( KeyCode.Escape ) )
 		{
 			Cursor.visible = true;
-			smoothFollow.target = emptyTrans;
-			playercontrollerScript.enabled = false;
+			//smoothFollow.target = emptyTrans;
+			if(controlledIndicator != null){
+				controlledIndicator.SetActive (false);
+				controlledIndicator = null;
+			}
 			if (AiRig != null) {
 				for (int i = 0; i < AiRig.Length; i++) {
-					AiRig [i].enabled = false;
+					AiRig [i].enabled = true;
+					//AiRig [i].enabled = null;
+
 				}
 			}
 		}
