@@ -110,10 +110,14 @@ MonoBehaviour:
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;wall not in range&quot;
       debugbreak=&quot;False&quot; constraint=&quot;wallInRange != true&quot; /&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;wall in range&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;wallInRange == true&quot;&gt;&lt;action
-      repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
-      namespace=&quot;(global)&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
-      classname=&quot;RepairWall&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      debugbreak=&quot;False&quot; constraint=&quot;wallInRange == true&quot;&gt;&lt;sequencer
+      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;check bayes
+      for final decision&quot; debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;running&quot;
+      priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;check bayes&quot; debugbreak=&quot;False&quot; classname=&quot;CheckBayes&quot;
+      /&gt;&lt;action repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;repair wall&quot;
+      debugbreak=&quot;False&quot; classname=&quot;RepairWall&quot; /&gt;&lt;/sequencer&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;does not need repair&quot;
       debugbreak=&quot;False&quot; constraint=&quot;wallHealth &amp;gt;= 100&quot;&gt;&lt;waypointpatrol
       waypointsetvariable=&quot;BuilderRoute&quot; waypointactiontype=&quot;patrol&quot;

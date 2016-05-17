@@ -167,6 +167,7 @@ GameObject:
   - 114: {fileID: 11428360}
   - 114: {fileID: 11480232}
   - 114: {fileID: 11471056}
+  - 114: {fileID: 11480808}
   m_Layer: 0
   m_Name: Builder
   m_TagString: Untagged
@@ -828,6 +829,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+--- !u!114 &11480808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b24feae9ebb64f5fa75db8374b04d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gate: {fileID: 0}
+  attackerSearchLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  moveSpeed: 5
 --- !u!114 &11484958
 MonoBehaviour:
   m_ObjectHideFlags: 1

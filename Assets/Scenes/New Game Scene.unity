@@ -1933,7 +1933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_Name
@@ -2531,7 +2531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_Name
@@ -3237,6 +3237,45 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55141799400984a2588621c0710fc17c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &449143832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449143834}
+  - 114: {fileID: 449143833}
+  m_Layer: 0
+  m_Name: BayesDecider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &449143833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449143832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245b0e0f1fb877148946d775eceb8fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &449143834
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449143832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 41.630367, y: 2.850132, z: -41.845352}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
 --- !u!1001 &457520374
 Prefab:
   m_ObjectHideFlags: 0
@@ -8210,7 +8249,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: _dataSerializer._serializedData
