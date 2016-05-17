@@ -41,24 +41,10 @@ public class BayesBuilder : MonoBehaviour
         bd.BuildStats();
     }
 
-    void Update()
-    {
-    }
-
-    void OnTriggerEnter( Collider col )
-    {
-        if( col.gameObject.tag == "Attacker" )
-        {
-            Debug.Log( "Oww!" );
-            Die();
-        }
-        else
-        {
-            Debug.Log( "Repaired!" );
-            doingIt = false;
-            bd.AddObservation( currObservation );
-        }
-    }
+	void OnDestroy()
+	{
+		Die();
+	}
 
     public void Die()
     {
@@ -72,36 +58,11 @@ public class BayesBuilder : MonoBehaviour
         }
     }
 
-    private void DebugTestBayes()
-    {
-        int[] discValues = new int[ 2 ];
-        discValues[ 0 ] = 0; // No enemies in way
-        discValues[ 1 ] = 0; // No enemies at gate
-
-        int[] contValues = new int[ 2 ];
-        contValues[ 0 ] = 66; // gate health
-        contValues[ 1 ] = 10; // dist
-
-        if( bd.Decide( contValues, discValues ) ) // <- We pass in the arrays we built above ^
-        {
-            Debug.Log("Let's repair!");
-        }
-        else
-        {
-            Debug.Log( "Let's not and say we did." );
-        }
-
-        Debug.Log( "Added last case with true outcome" );
-        bd.AddObservation( contValues, discValues, 0 );
-        bd.Tab2Screen();
-        bd.BuildStats();
-    }
-
     public void TestBayes()
     {
         if( gate.hp < 100 )
         {
-            int gateHealth = Mathf.RoundToInt( Mathf.Min( 0, gate.hp ) );
+			int gateHealth = Mathf.RoundToInt( Mathf.Max( 0, gate.hp ) );
 
             float dist = Vector3.Distance( gate.transform.position, transform.position );
 
@@ -123,7 +84,7 @@ public class BayesBuilder : MonoBehaviour
                 }
             }
 
-            float radius = 2.5f;
+            float radius = 10f;
             Vector3 pos = gate.transform.position + dir * radius;
             Collider[] cols = Physics.OverlapSphere( pos, radius, attackerSearchLayerMask );
 
@@ -152,7 +113,7 @@ public class BayesBuilder : MonoBehaviour
             debug += "\nGate Health: " + gateHealth;
             debug += "\nDistance: " + dist;
             debug += "\nRepair?: " + doIt;
-            Debug.Log( debug );
+            //Debug.Log( debug );
 
             currObservation.continuousValues = contValues;
             currObservation.discreteValues = discValues;
@@ -163,6 +124,7 @@ public class BayesBuilder : MonoBehaviour
             if( doIt )
             {
                 doingIt = true;
+				StartCoroutine( MonitorDoIt( dist ) );
             }
             else
             {
@@ -170,6 +132,24 @@ public class BayesBuilder : MonoBehaviour
             }
         }
     }
+
+	private IEnumerator MonitorDoIt( float dist )
+	{
+		bool gateAlreadyDestroyed = ( gate.hp <= 0 );
+		float timeToArrive = dist / moveSpeed;
+		yield return new WaitForSeconds( timeToArrive + 1.0f );
+		if( GetComponent<Health>().hp > 0 )
+		{
+			Debug.Log( "Survived, good" );
+			currObservation.outcome = 0;
+		}
+		else
+		{
+			currObservation.outcome = 1;
+		}
+
+		bd.AddObservation( currObservation );
+	}
 
     private IEnumerator MonitorDecision( float dist )
     {

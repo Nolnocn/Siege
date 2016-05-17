@@ -831,7 +831,7 @@ MonoBehaviour:
   gate: {fileID: 0}
   attackerSearchLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   moveSpeed: 5
   doingIt: 0
 --- !u!114 &11480232
@@ -1065,6 +1065,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Builder
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackerSearchLayerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

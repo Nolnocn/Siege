@@ -17,6 +17,11 @@ public class BayesDeciderRef : MonoBehaviour {
 	
 	}
 
+	void OnApplicationQuit()
+	{
+		bd.Tab2File();
+	}
+
     public BayesDecider getBayesDecider()
     {
         return bd;
