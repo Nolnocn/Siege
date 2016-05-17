@@ -39,7 +39,6 @@ public class ChooseWall : RAINAction
             wall = wallAspects[i].Entity.Form.gameObject;
             wallScript = wall.GetComponent<Health>();
 
-            Debug.Log("wall 2 health: " + wallAspects.Count);
             if (wallScript.hp < 100)
             {
                 ai.WorkingMemory.SetItem("wallPosition", wall.transform.position);
