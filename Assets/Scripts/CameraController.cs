@@ -5,6 +5,7 @@ using RAIN;
 public class CameraController : MonoBehaviour
 {
 	SmoothFollow smoothFollow;
+	MonoBehaviour playercontrollerScript;
 	Transform emptyTrans;
 	RAIN.Core.AIRig[] AiRig;
 	public float speed = 10.0f;
@@ -30,6 +31,8 @@ public class CameraController : MonoBehaviour
 					if (hit.transform.tag == "Defender") { //did we hit the defender?	
 						
 						AiRig = hit.transform.GetComponents<RAIN.Core.AIRig> ();
+						playercontrollerScript = hit.transform.GetComponent("ThirdPersonCharacter") as MonoBehaviour;
+						playercontrollerScript.enabled = true;
 						//print(hit.transform.GetComponents<RAIN.Core.AIRig> ());
 
 						//Turn on smoothfollow script on the hit target
@@ -46,6 +49,7 @@ public class CameraController : MonoBehaviour
 		{
 			Cursor.visible = true;
 			smoothFollow.target = emptyTrans;
+			playercontrollerScript.enabled = false;
 			if (AiRig != null) {
 				for (int i = 0; i < AiRig.Length; i++) {
 					AiRig [i].enabled = false;
