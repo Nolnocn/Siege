@@ -28,7 +28,6 @@ public class WallHPCheck : RAINAction
 		}
 		
         ai.WorkingMemory.SetItem("wallHealth", wallScript.hp);
-        Debug.Log("Wall health: " + ai.WorkingMemory.GetItem("wallHealth"));
 		return ActionResult.SUCCESS;
 	}
 	

@@ -43,60 +43,6 @@ public class BayesBuilder : MonoBehaviour
 
     void Update()
     {
-        if( Input.GetKeyDown( KeyCode.A ) )
-        {
-            gate.hp -= 20;
-            Debug.Log( "Gate Damaged. HP: " + gate.hp );
-
-            if( gate.hp <= 0 )
-            {
-                Debug.Log( "Gate broke" );
-            }
-        }
-        else if( Input.GetKeyDown( KeyCode.S ) )
-        {
-            Debug.Log( "Saving" );
-            bd.Tab2File();
-        }
-        else if( Input.GetKeyDown( KeyCode.D ) )
-        {
-            bd.Tab2Screen();
-        }
-        else if( Input.GetKeyDown( KeyCode.Space ) )
-        {
-            if( !doingIt )
-                TestBayes();
-            //DebugTestBayes();
-        }
-        else if( Input.GetKeyDown( KeyCode.E ) )
-        {
-            bd.DumpStats();
-        }
-
-        if( currObservation.outcome != -1 )
-        {
-            if( Input.GetKeyDown( KeyCode.Minus ) )
-            {
-                currObservation.outcome = 1;
-                bd.AddObservation( currObservation );
-                Debug.Log( "Added Observation as negative" );
-                bd.BuildStats();
-            }
-            else if( Input.GetKeyDown( KeyCode.Equals ) )
-            {
-                currObservation.outcome = 0;
-                bd.AddObservation( currObservation );
-                Debug.Log( "Added Observation as positive" );
-                bd.BuildStats();
-            }
-        }
-
-        if( doingIt )
-        {
-            Vector3 pos = transform.position;
-            Vector3 targetPos = gate.transform.position;
-            transform.position = Vector3.MoveTowards( pos, targetPos, moveSpeed * Time.deltaTime );
-        }
     }
 
     void OnTriggerEnter( Collider col )
@@ -212,7 +158,7 @@ public class BayesBuilder : MonoBehaviour
             currObservation.discreteValues = discValues;
             currObservation.outcome = ( doIt ? 0 : 1 );
 
-            Debug.Log( doIt );
+            //Debug.Log( doIt );
 
             if( doIt )
             {
@@ -230,7 +176,7 @@ public class BayesBuilder : MonoBehaviour
         bool gateAlreadyDestroyed = ( gate.hp <= 0 );
         float timeToArrive = dist / moveSpeed;
         yield return new WaitForSeconds( timeToArrive );
-        Debug.Log( "Would have arrived... wait to see..." );
+        //Debug.Log( "Would have arrived... wait to see..." );
         if( gate.hp <= 0 && !gateAlreadyDestroyed )
         {
             Debug.Log( "Gate would have been destroyed before arrival." );

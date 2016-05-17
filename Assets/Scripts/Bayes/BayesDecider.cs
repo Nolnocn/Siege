@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bayes
 {
-    public class BayesDecider : MonoBehaviour
+    public class BayesDecider
 	{
 		public static readonly double SQRT2PI = Math.Sqrt( 2.0 * Math.PI );
 

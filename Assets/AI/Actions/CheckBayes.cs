@@ -17,7 +17,6 @@ public class CheckBayes : RAINAction
         base.Start(ai);
         builder = ai.Body as GameObject;
         bayes = builder.GetComponent<BayesBuilder>();
-        Debug.Log("Gate: " + ai.WorkingMemory.GetItem("wall"));
         gate = ai.WorkingMemory.GetItem("wall") as GameObject;
         gateScript = gate.GetComponent<Health>();
         bayes.gate = gateScript;

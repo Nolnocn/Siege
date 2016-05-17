@@ -3,11 +3,11 @@ using System.Collections;
 using Bayes;
 
 public class BayesDeciderRef : MonoBehaviour {
-
+    
     private BayesDecider bd;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         
         bd = new BayesDecider( "RepairTab.txt", "Repair Wall" );
 	}

@@ -26,8 +26,7 @@ public class CheckMyRes : RAINAction
 			ai.WorkingMemory.SetItem("holdingRes", false);
             return ActionResult.SUCCESS;
 		}
-		
-		ai.WorkingMemory.SetItem("holdingRes", true);
+        else ai.WorkingMemory.SetItem("holdingRes", true);
 		return ActionResult.SUCCESS;
 	}
 	
