@@ -13,6 +13,7 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (hp <= 0) {
+			print (gameObject.name + ": died at " + Time.time);
 			gameObject.SetActive(false);
 		}
 	}
