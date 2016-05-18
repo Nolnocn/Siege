@@ -220,7 +220,14 @@ namespace ThreshEvolve
 		// Get Individual at offset where in the array
 		public Individual GetDude (int where)
 		{
-			return dudes [where];
+			if( where < dudes.Length )
+			{
+				return dudes [where];
+			}
+			else
+			{
+				return dudes [0];
+			}
 		}
 
 		// Set fitness of Individual at offset where to fitVal

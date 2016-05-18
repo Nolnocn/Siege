@@ -9,8 +9,8 @@ public class AttackerWaveSpawner : MonoBehaviour
 	public Transform[] spawnPoints;
 	public int popSize = 10;
 
-	public int dmgChromLeng = 6;
-	public int hpChromLeng = 5;
+	private int dmgChromLeng = 2;
+	private int hpChromLeng = 3;
 
 	private int dmgNumChromVals;
 	private int hpNumChromVals;
@@ -32,6 +32,9 @@ public class AttackerWaveSpawner : MonoBehaviour
 		string basePath = Application.dataPath + "/Data/";
 		hpNumChromVals = 1 << hpChromLeng;
 		dmgNumChromVals = 1 << dmgChromLeng;
+
+		//print( hpNumChromVals );
+		//print( dmgNumChromVals );
 		dmgPop = new ThreshPop( dmgNumChromVals, popSize, basePath + "AtkDmg.txt", 0.9, 0.1 );
 		hpPop = new ThreshPop( hpNumChromVals, popSize, basePath + "AtkHp.txt", 0.9, 0.1 );
 		StartWave();
@@ -82,8 +85,8 @@ public class AttackerWaveSpawner : MonoBehaviour
 			uint hpChrom = hpPop.CheckOut();
 			uint dmgChrom = dmgPop.CheckOut();
 
-			float hp = Gen2Phen( hpChrom, 10f, 200f, hpNumChromVals );
-			float dmg = Gen2Phen( dmgChrom, 5f, 35f, dmgNumChromVals );
+			float hp = Gen2Phen( hpChrom, 50f, 200f, hpNumChromVals );
+			float dmg = Gen2Phen( dmgChrom, 5f, 25f, dmgNumChromVals );
 
 			pop[ i ].Init( hpChrom, dmgChrom, hp, dmg );
 		}
@@ -110,11 +113,10 @@ public class AttackerWaveSpawner : MonoBehaviour
 		StartWave();
 	}
 
-	private float Gen2Phen( uint gen, float lb, float ub, int nChromVals )
+	private float Gen2Phen( uint gen, float lb, float ub, int nChromValues )
 	{
-		float step = ( ub - lb ) / nChromVals;
-		print( step );
-		print( gen );
-		return (gen * step + lb);
+		float max = Mathf.Pow( 2, nChromValues );
+		gen = (uint)Mathf.Min( (int)gen, max );
+		return (gen - 0) / (max - 0) * (ub - lb) + lb;
 	}
 }
