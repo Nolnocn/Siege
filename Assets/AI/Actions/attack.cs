@@ -54,8 +54,9 @@ public class attack : RAINAction
 				//ai.WorkingMemory.SetItem<GameObject>("enemySeen", detected);
 
 				//RAIN.Core.AIRig.AI.Mind.AIInit ();
+
 			}
-			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
+			Debug.Log(ai.Body.name + ": Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
 
 		}

@@ -174,7 +174,7 @@ public class BayesBuilder : MonoBehaviour
             }
         }
 
-        Debug.Log( "Adding obs" );
+        //Debug.Log( "Adding obs" );
         bd.AddObservation( currObservation );
     }
 }

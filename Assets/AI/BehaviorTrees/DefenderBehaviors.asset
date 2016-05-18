@@ -31,7 +31,7 @@ MonoBehaviour:
       repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;180&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;nextTarget&quot;
       movespeed=&quot;4&quot; facetarget=&quot;nextTarget&quot; debugbreak=&quot;False&quot;
-      closeenoughdistance=&quot;5&quot; closeenoughangle=&quot;5&quot; /&gt;&lt;mecparam
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;mecparam
       valueexpression=&quot;1&quot; repeatuntil=&quot;&quot; parametertype=&quot;trigger&quot;
       parametername=&quot;Run&quot; name=&quot;mecparam&quot; debugbreak=&quot;False&quot;
       damptime=&quot;0&quot; /&gt;&lt;/parallel&gt;&lt;/waypointpatrol&gt;&lt;/constraint&gt;&lt;constraint
