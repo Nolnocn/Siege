@@ -546,10 +546,10 @@ MonoBehaviour:
       id="wpTwo" /><field value="True" type="System.Boolean" id="twoWay" /></reference><reference
       type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="18"><field type="RAIN.Navigation.Waypoints.WaypointSet"
       reference="0" id="_waypointSet" /><field value="" type="System.String" id="_waypointName"
-      /><field value="-9.908283,5.000887,-38.49861" type="UnityEngine.Vector3" id="_position"
+      /><field value="-17.77881,5.000887,-47.2327" type="UnityEngine.Vector3" id="_position"
       /><field value="0.5" type="System.Single" id="_range" /></reference><reference
       type="RAIN.Navigation.Waypoints.WaypointSet+WaypointConnection" refcount="1"
-      id="19"><field value="7" type="System.Int32" id="wpOne" /><field value="8" type="System.Int32"
+      id="19"><field value="1" type="System.Int32" id="wpOne" /><field value="8" type="System.Int32"
       id="wpTwo" /><field value="True" type="System.Boolean" id="twoWay" /></reference><reference
       type="RAIN.Navigation.Waypoints.WaypointSet+WaypointConnection" refcount="0"
       id="20" /></references></component>
@@ -1081,6 +1081,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2039,6 +2040,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
   m_IsPrefabParent: 0
@@ -2163,6 +2168,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2689,6 +2695,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 481028, guid: 3361e91fcc54343e58a22e3da2060337, type: 2}
   m_PrefabInternal: {fileID: 799291505}
+--- !u!1 &345062005 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+  m_PrefabInternal: {fileID: 776016902}
 --- !u!1001 &345337407
 Prefab:
   m_ObjectHideFlags: 0
@@ -2793,14 +2803,6 @@ Prefab:
     - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_Name
       value: Defender(Sentry) (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 472176, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -41.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
@@ -3612,6 +3614,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5213,6 +5219,47 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _dataSerializer._serializedData
+      value: <component version="1.3" type="RAIN.Entities.EntityRig"><fields><field
+        value="OnWhenSelected" type="RAIN.Core.VisualModeEnum" id="_visualMode" /><field
+        value="True" type="System.Boolean" id="_useUnityMessages" /><field type="RAIN.Entities.Entity"
+        reference="0" id="_entity" /></fields><references><reference type="RAIN.Entities.Entity"
+        refcount="1" id="0"><field value="" type="System.String" id="_entityName"
+        /><field value="True" type="System.Boolean" id="_isActive" /><field type="UnityEngine.GameObject"
+        id="_form" gameobject="0" /><field type="System.Collections.Generic.List"
+        id="_aspects" elementtype="RAIN.Entities.Aspects.RAINAspect"><field type="RAIN.Entities.Aspects.VisualAspect"
+        reference="1" id="element0" /></field></reference><reference type="RAIN.Entities.Aspects.VisualAspect"
+        refcount="1" id="1"><field value="True" type="System.Boolean" id="_showVisual"
+        /><field value="defenderAspect" type="System.String" id="_aspectName" /><field
+        value="True" type="System.Boolean" id="_isActive" /><field value="0.6,0,0,1"
+        type="UnityEngine.Color" id="_aspectColor" /><field value="-0.5" type="System.Single"
+        id="_outlineColorOffset" /><field value="0.4" type="System.Single" id="_selectionColorOffset"
+        /><field value="0.1" type="System.Single" id="_visualSize" /><field type="UnityEngine.Transform"
+        id="_mountPoint" gameobject="1" /><field value="0,0,0" type="UnityEngine.Vector3"
+        id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3" id="_angleOffset"
+        /></reference></references></component>
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _dataSerializer._serializedGameObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _dataSerializer._serializedGameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 345062005}
+    - target: {fileID: 0}
+      propertyPath: _dataSerializer._serializedGameObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 776016903}
+    - target: {fileID: 0}
+      propertyPath: _dataSerializer._serializedCustomData.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
   m_IsPrefabParent: 0
@@ -5263,8 +5310,8 @@ Prefab:
       propertyPath: m_Name
       value: Defender(Sentry) (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
-      propertyPath: m_LocalScale.z
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6575,6 +6622,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8739,7 +8790,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 5.26
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8765,7 +8816,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedData
       value: <component version="1.3" type="RAIN.Core.AIRig"><fields><field value="OnWhenSelected"
         type="RAIN.Core.VisualModeEnum" id="_visualMode" /><field value="True" type="System.Boolean"
@@ -8813,29 +8864,33 @@ Prefab:
         /><field value="True" type="System.Boolean" id="_lineOfSight" /><field value="-5"
         type="UnityEngine.LayerMask" id="_lineOfSightMask" /></reference></references></component>
       objectReference: {fileID: 0}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedGameObjects.Array.size
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedGameObjects.Array.data[0]
       value: 
       objectReference: {fileID: 884721373}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 5b255a776c001a146aec7008804c9bb6,
         type: 2}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedGameObjects.Array.data[2]
       value: 
       objectReference: {fileID: 884721382}
-    - target: {fileID: 11410252, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+    - target: {fileID: 0}
       propertyPath: _dataSerializer._serializedCustomData.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9325,6 +9380,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11649,6 +11708,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
   m_IsPrefabParent: 0
@@ -12630,6 +12693,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411384, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173202, guid: 248e5cd0eb4cf2f48b6dd4bde12a22ca, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

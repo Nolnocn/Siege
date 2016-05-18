@@ -8,7 +8,7 @@ using RAIN.Core;
 public class SentryAttack : RAINAction
 {
 	GameObject detected;
-	float attackCooldown = 8f;
+	float attackCooldown = 3f;
 	float attackTimer = 0f;
 	Health targetHealthscript;
 
