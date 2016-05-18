@@ -1,0 +1,14 @@
+d0 d1 c85 c85 o1
+d0 d0 c80 c90 o1
+d1 d1 c83 c86 o0
+d2 d1 c70 c96 o0
+d2 d1 c68 c80 o0
+d2 d0 c65 c70 o1
+d1 d0 c64 c65 o0
+d0 d1 c72 c95 o1
+d0 d1 c69 c70 o0
+d2 d1 c75 c80 o0
+d0 d0 c75 c70 o0
+d1 d0 c72 c90 o0
+d1 d1 c81 c75 o0
+d2 d0 c71 c91 o1

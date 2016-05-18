@@ -9,7 +9,7 @@ public class WallHPCheck : RAINAction
 {
 	
 	GameObject detected;
-	WallController wallScript;
+	Health wallScript;
 	
 	public override void Start(RAIN.Core.AI ai)
 	{
@@ -18,17 +18,16 @@ public class WallHPCheck : RAINAction
 	
 	public override ActionResult Execute(RAIN.Core.AI ai)
 	{
-		GameObject detected = ai.WorkingMemory.GetItem ("Wall") as GameObject;
-		wallScript = detected.GetComponent<WallController> ();
+		GameObject detected = ai.WorkingMemory.GetItem ("wall") as GameObject;
+		wallScript = detected.GetComponent<Health> ();
 		
-		if(wallScript.health <= 0 || wallScript.health == 100)
-		{
+        if(wallScript.hp <= 0 || wallScript.hp == 100)
+        {
+            ai.WorkingMemory.SetItem("wallHealth", wallScript.hp);
 			return ActionResult.FAILURE;
 		}
 		
-		ai.WorkingMemory.SetItem("wallHealth", wallScript.health);
-		ai.WorkingMemory.ItemExists("wallHealth");
-		Debug.Log(ai.WorkingMemory.ItemExists("wallHealth"));
+        ai.WorkingMemory.SetItem("wallHealth", wallScript.hp);
 		return ActionResult.SUCCESS;
 	}
 	

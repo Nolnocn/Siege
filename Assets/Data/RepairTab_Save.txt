@@ -1,0 +1,9 @@
+c0 c10 d0 d0 o0
+c0 c100 d0 d0 o0
+c20 c10 d0 d0 o0
+c30 c10 d0 d0 o0
+c40 c10 d0 d0 o0
+c50 c10 d0 d0 o0
+c100 c10 d0 d0 o1
+c80 c10 d1 d0 o1
+c20 c50 d0 d1 o1

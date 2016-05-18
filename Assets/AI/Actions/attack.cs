@@ -12,6 +12,9 @@ public class attack : RAINAction
 	float attackCooldown = 2f;
 	float attackTimer = 0f;
 	Health targetHealthscript;
+
+	//tRig.AI.WorkingMemory.SetItem<SoldierAmmo>("MyAmmo", _startingAmmo);
+
     public override void Start(RAIN.Core.AI ai)
     {
         base.Start(ai);
@@ -22,20 +25,53 @@ public class attack : RAINAction
 		if(attackTimer + attackCooldown<Time.time)
 		{
 			//GameObject detected = agent.WorkingMemory.GetItem.<GameObject>(“defenderAspect”);
-			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
 
-			if(detected.activeSelf == false )
+			 GameObject detected = ai.WorkingMemory.GetItem ("enemy") as GameObject;
+			if (detected == null) {
+				 detected = ai.WorkingMemory.GetItem ("gate") as GameObject;
+			}
+
+			/*if(detected.activeSelf == false )
 			{
 				Debug.Log ("In detected == null");
 				detected = null;
 				//RAIN.Core.AI.AIInit();
 				return ActionResult.FAILURE;
+			}*/
+
+			AttackerEvoStats stats = ai.Body.GetComponent<AttackerEvoStats>();
+
+			float dmg = 15;
+
+			if( stats != null )
+			{
+				dmg = stats.Damage;
 			}
 
-			Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
+			//Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
 			targetHealthscript = detected.GetComponent<Health> ();
-			targetHealthscript.hp -= 50;
-			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
+			targetHealthscript.hp -= dmg;
+
+			if( stats != null )
+			{
+				stats.DamageDealt += dmg;
+			}
+
+			if (targetHealthscript.hp < 0) {
+				detected = null;
+				//return ActionResult.SUCCESS;
+				return ActionResult.FAILURE;
+				//ai.WorkingMemory.Clear ();
+				//ai.WorkingMemory.SetItem<GameObject>("gate", detected);
+				//ai.WorkingMemory.SetItem<GameObject>("enemy", detected);
+
+				//ai.WorkingMemory.SetItem<GameObject>("gateSeen", detected);
+				//ai.WorkingMemory.SetItem<GameObject>("enemySeen", detected);
+
+				//RAIN.Core.AIRig.AI.Mind.AIInit ();
+
+			}
+			//Debug.Log(ai.Body.name + ": Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
 
 		}

@@ -15,7 +15,7 @@ public class WallController : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
     {
-        checkHealth();
+        CheckHealth();
 
         if( m_destroyed )
         {
@@ -29,12 +29,24 @@ public class WallController : MonoBehaviour
         health -= damage;
     }
 
-    private void checkHealth()
+    private void CheckHealth()
     {
         if( health <= 0 )
         {
             health = 0;
             m_destroyed = true;
         }
+		else if( health > 100 )
+		{
+			health = 100;
+		}
     }
+
+	public void Heal(int amt)
+	{
+		if( health < 100 )
+		{
+			health += amt;
+		}
+	}
 }

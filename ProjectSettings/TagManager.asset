@@ -13,6 +13,9 @@ TagManager:
   - Left_Back_Wall
   - Left_Front_Wall
   - Left_Mid_Wall
+  - Attacker
+  - Defender
+  - Builder
   layers:
   - Default
   - TransparentFX
