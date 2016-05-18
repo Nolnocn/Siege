@@ -71,7 +71,7 @@ public class attack : RAINAction
 				//RAIN.Core.AIRig.AI.Mind.AIInit ();
 
 			}
-			Debug.Log(ai.Body.name + ": Enemy hit, current hp is " + targetHealthscript.hp);
+			//Debug.Log(ai.Body.name + ": Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
 
 		}

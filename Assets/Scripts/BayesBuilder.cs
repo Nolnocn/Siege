@@ -140,7 +140,7 @@ public class BayesBuilder : MonoBehaviour
 		yield return new WaitForSeconds( timeToArrive + 1.0f );
 		if( GetComponent<Health>().hp > 0 )
 		{
-			Debug.Log( "Survived, good" );
+			//Debug.Log( "Survived, good" );
 			currObservation.outcome = 0;
 		}
 		else
@@ -159,8 +159,8 @@ public class BayesBuilder : MonoBehaviour
         //Debug.Log( "Would have arrived... wait to see..." );
         if( gate.hp <= 0 && !gateAlreadyDestroyed )
         {
-            Debug.Log( "Gate would have been destroyed before arrival." );
-            Debug.Log( "Good Call" );
+           // Debug.Log( "Gate would have been destroyed before arrival." );
+           // Debug.Log( "Good Call" );
             currObservation.outcome = 1;
         }
         else
@@ -168,8 +168,8 @@ public class BayesBuilder : MonoBehaviour
             yield return new WaitForSeconds( 5.0f );
             if( gate.hp <= 0 )
             {
-                Debug.Log( "Gate could have saved!" );
-                Debug.Log( "Bad Call" );
+              //  Debug.Log( "Gate could have saved!" );
+               // Debug.Log( "Bad Call" );
                 currObservation.outcome = 0;
             }
         }

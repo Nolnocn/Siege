@@ -52,7 +52,7 @@ public class SentryAttack : RAINAction
 
 				//RAIN.Core.AIRig.AI.Mind.AIInit ();
 			}
-			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
+//			Debug.Log("Enemy hit, current hp is " + targetHealthscript.hp);
 			attackTimer=Time.time;
 
 		}
