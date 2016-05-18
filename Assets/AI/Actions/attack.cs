@@ -39,9 +39,24 @@ public class attack : RAINAction
 				return ActionResult.FAILURE;
 			}*/
 
+			AttackerEvoStats stats = ai.Body.GetComponent<AttackerEvoStats>();
+
+			float dmg = 15;
+
+			if( stats != null )
+			{
+				dmg = stats.Damage;
+			}
+
 			//Debug.Log(ai.WorkingMemory.GetItem ("enemy"));
 			targetHealthscript = detected.GetComponent<Health> ();
-			targetHealthscript.hp -= 15;
+			targetHealthscript.hp -= dmg;
+
+			if( stats != null )
+			{
+				stats.DamageDealt += dmg;
+			}
+
 			if (targetHealthscript.hp < 0) {
 				detected = null;
 				//return ActionResult.SUCCESS;
